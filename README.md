@@ -1,7 +1,7 @@
 # VueJS
 **Guide d'installation**
 ````
-# creation projet :
+# lancement du projet :
 - npm install (dans dossier projet)
 - npm run dev (run serveur)
 
