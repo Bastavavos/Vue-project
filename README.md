@@ -1,15 +1,17 @@
 # VueJS
-
 **Guide d'installation**
-
+````
 # creation projet :
-npm create vue@latest
-npm install (dans dossier projet)
-npm run dev (run serveur)
+- npm install (dans dossier projet)
+- npm run dev (run serveur)
 
+````
+````
 # axios :
 npm install axios
 
+````
+````
 # dossiers a creer a la racine du projet : 
 
 tailwind.config.js -->
@@ -28,10 +30,13 @@ export default {
 plugins: [tailwindcss, autoprefixer],
 };"
 
+````
+````
 # icons auto-import : 
 - npm i -D unplugin-icons
 - npm i -D @iconify-json/ph
-
+````
+````
 # dans "vite.config.js" :
 "import Vue from '@vitejs/plugin-vue'
 import Icons from 'unplugin-icons/vite'
@@ -49,3 +54,4 @@ IconsResolver(),
 Icons(),
 ],
 }"
+````
