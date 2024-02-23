@@ -12,9 +12,11 @@ export const useItemsStore = defineStore({
     actions: {
         addItem(item) {
             this.items.push(item);
+            // console.log(this.items)
         },
-        removeItem(itemId) {
-            this.items = this.items.filter(item => item.id !== itemId);
+        removeItem(currentItem) {
+                this.items = this.items.filter(item => item.id !== currentItem.id)
         },
     },
 });
+

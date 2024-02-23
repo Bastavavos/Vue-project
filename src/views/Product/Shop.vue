@@ -1,3 +1,22 @@
+<script>
+import ProductCard from "@/components/ProductCard.vue";
+import {usehttpStore} from "@/stores/httpstore.js";
+import {onMounted} from "vue";
+
+export default {
+  components: {ProductCard},
+  setup() {
+    const shop = usehttpStore();
+
+    onMounted(() => {
+      shop.fetchStore();
+    })
+
+    return {shop};
+  }
+}
+</script>
+
 <template>
 
   <div class="flex justify-center">
@@ -40,21 +59,3 @@
 }
 </style>
 
-<script>
-import ProductCard from "@/components/ProductCard.vue";
-import {usehttpStore} from "@/stores/httpstore.js";
-import {onMounted} from "vue";
-
-export default {
-  components: {ProductCard},
-  setup() {
-    const shop = usehttpStore();
-
-    onMounted(() => {
-      shop.fetchStore();
-    })
-
-    return {shop};
-  }
-}
-</script>

@@ -1,9 +1,8 @@
 <script setup>
-import {useItemsStore} from "@/stores/store.js";
-const itemStore = useItemsStore()
-import ProductCard from "@/components/ProductCard.vue";
+import {useItemsStore} from "@/stores/cart.js";
+import ItemCart from "@/views/Product/ItemCart.vue";
+const itemStore = useItemsStore();
 </script>
-
 <template>
 
   <div class="flex justify-center font-ryman">
@@ -13,8 +12,7 @@ import ProductCard from "@/components/ProductCard.vue";
   <div class="container">
     <div class="flex justify-center">
       <div class="wrapper">
-        <ProductCard v-for="product in itemStore.items" :key="product.id" :product="product"/>
-        <button  @click="itemStore.removeItem(product)" class="btn text-white mb-2 font-dm">DELETE</button>
+        <ItemCart v-for="product in itemStore.items" :key="product.id" :product="product"/>
       </div>
     </div>
 
@@ -54,13 +52,9 @@ import ProductCard from "@/components/ProductCard.vue";
   border-radius: unset;
   background-color: black;
 }
-
 </style>
 
+
 <script>
-export default {
-  props:{
-    product: Object,
-  },
-};
 </script>
+
