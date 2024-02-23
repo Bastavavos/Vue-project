@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomePage from "@/views/Home/HomePage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,15 +7,45 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomePage
+    },
+    {
+      path: '/shop',
+      name: 'shop',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/Product/Shop.vue')
     },
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../views/About/AboutPage.vue')
+    },
+    {
+      path: '/product-details',
+      name: 'product-details',
+      component: () => import('../views/Product/ProductDetails.vue')
+    },
+    {
+      path: '/sign-in',
+      name: 'sign-in',
+      component: () => import('../components/Connection.vue')
+    },
+    {
+      path: '/sign-up',
+      name: 'sign-up',
+      component: () => import('../components/Inscription.vue')
+    },
+    {
+      path: '/user-account',
+      name: 'user-account',
+      component: () => import('../views/User/UserAccount.vue')
+    },
+    {
+      path: '/user-cart',
+      name: 'user-cart',
+      component: () => import('../views/User/UserCart.vue')
     }
   ]
 })
