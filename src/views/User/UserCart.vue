@@ -1,8 +1,10 @@
 <script setup>
 import {useItemsStore} from "@/stores/cart.js";
 import ItemCart from "@/views/Product/ItemCart.vue";
+import itemCart from "../Product/ItemCart.vue";
 const itemStore = useItemsStore();
 </script>
+
 <template>
 
   <div class="flex justify-center font-ryman">
@@ -18,10 +20,9 @@ const itemStore = useItemsStore();
 
     <div class="card bg-base-100 shadow-xl mb-10 mt-5 font-dm">
       <div class="card-body items-center text-center p-2">
-        <h2 class="card-title">Total</h2>
-        <div class="card-actions">
-          <button class="btn text-white mb-2 mt-28">CONFIRM & PAY</button>
-        </div>
+        <h2 class="card-title mb-6">Total</h2>
+        <p class="font-bold text-xl">{{ itemStore.totalPrice }} $</p>
+          <button class="btn text-white mb-2 mt-8">CONFIRM & PAY</button>
       </div>
     </div>
   </div>
@@ -54,7 +55,4 @@ const itemStore = useItemsStore();
 }
 </style>
 
-
-<script>
-</script>
 

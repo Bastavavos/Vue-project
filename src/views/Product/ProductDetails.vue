@@ -1,16 +1,34 @@
-<script setup>
+<script>
+import {usehttpStore} from "@/stores/httpstore.js";
 
+export default {
+ data() {
+   return {
+     product:null
+   }
+ },
+  methods:{
+   async fetchProduct(){
+     const httpStore = usehttpStore()
+     this.product = await httpStore.getProduct(this.$route.params.id)
+     console.log(this.product)
+   }
+  },
+  created() {
+    this.fetchProduct()
+  }
+}
 </script>
 
 <template>
 
   <div class="card bg-base-100">
     <figure class="img p-2">
-      <img src="/Product_Ring.webp" alt="Product" class="h-32 w-28">
+      <img :src="product?.image" alt="Product" class="h-32 w-28">
     </figure>
     <div class="card-body items-center text-center p-2">
-      <h2 class="card-title">Ring</h2>
-      <p>description description</p>
+      <h2 class="card-title">{{product?.title}}</h2>
+      <p>{{product?.description}}</p>
 
       <div class="card-actions mt-5">
         <button class="btn-2 p-1">color</button>
@@ -24,9 +42,11 @@
         <option>material 2</option>
       </select>
 
-      <div class="card-actions mb-5">
-        <button class="btn text-white mb-2">ADD TO CART</button>
-        <button class="btn text-white mb-2">BUY NOW</button>
+      <p class="font-bold text-xl">{{product?.price}} $</p>
+
+      <div class="card-actions mb-5 font-dm">
+        <button class="btn text-white mb-2 mt-6">ADD TO CART</button>
+        <button class="btn text-white mb-2 mt-6">BUY NOW</button>
       </div>
     </div>
   </div>
@@ -44,7 +64,6 @@
 .btn {
   border-radius: unset;
   background-color: black;
-  font-family: sans-serif;
 }
 
 .btn-2 {

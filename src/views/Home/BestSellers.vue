@@ -1,3 +1,21 @@
+<script>
+import ProductCard from "@/components/ProductCard.vue";
+import {usehttpStore} from "@/stores/httpstore.js";
+import {onMounted} from "vue";
+
+export default {
+  components: {ProductCard},
+  setup() {
+    const best = usehttpStore();
+
+    onMounted(() => {
+      best.getProducts();
+    })
+
+    return {best};
+  }
+}
+</script>
 <template>
 
   <div class="flex justify-center">
@@ -31,41 +49,3 @@
 }
 </style>
 
-<script>
-import ProductCard from "@/components/ProductCard.vue";
-import {usehttpStore} from "@/stores/httpstore.js";
-import {onMounted} from "vue";
-
-export default {
-  components: {ProductCard},
-  setup() {
-    const best = usehttpStore();
-
-    onMounted(() => {
-      best.fetchBest();
-    })
-
-    return {best};
-  }
-}
-// export default {
-//   data() {
-//     return {
-//       bestsellers: [
-//         {
-//           id: 1,
-//           name: "best1",
-//           description: "lesangdecluse",
-//           img: "Product_Ring.webp"
-//         },
-//         {
-//           id: 2,
-//           name: "best2",
-//           description: "professor",
-//           img: "Product_Ring.webp"
-//         }
-//       ]
-//     }
-//   }
-// }
-</script>

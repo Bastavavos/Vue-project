@@ -9,7 +9,7 @@ export default {
     const shop = usehttpStore();
 
     onMounted(() => {
-      shop.fetchStore();
+      shop.getProducts();
     })
 
     return {shop};

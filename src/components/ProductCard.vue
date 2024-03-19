@@ -1,7 +1,23 @@
+<script>
+import {useItemsStore} from "@/stores/cart.js";
+
+export default {
+  props: {
+    product: Object,
+  },
+  setup() {
+    const itemStore = useItemsStore();
+    return {
+      itemStore,
+    };
+  },
+}
+</script>
+
 <template>
 
   <div class="card bg-base-100 shadow-xl mb-1 font-dm">
-    <RouterLink to="/product-details">
+    <RouterLink :to="`/product/${product.id}`">
       <figure class="img p-2">
         <img :src="product.image" alt="Product" class="h-32 w-28">
 <!--        <img src="https://www.creationapart.fr/475-home_default/bague-cubes-.jpg" alt="Ring" class="h-32 w-28"/>-->
@@ -36,18 +52,3 @@ border-bottom: solid 1px ;
 </style>
 
 
-<script>
-import {useItemsStore} from "@/stores/cart.js";
-
-export default {
-  props: {
-    product: Object,
-  },
-  setup() {
-    const itemStore = useItemsStore();
-    return {
-      itemStore,
-    };
-  },
-}
-</script>

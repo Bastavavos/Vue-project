@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import {computed, ref} from "vue";
+import {computed} from "vue";
 
 export const useItemsStore = defineStore({
     id: 'items',
@@ -7,7 +7,9 @@ export const useItemsStore = defineStore({
         items: [],
     }),
     getters: {
-        // Define getters here if needed
+        totalPrice: (state) => computed(() => {
+            return state.items.reduce((total, item) => total + item.price, 0);
+        }),
     },
     actions: {
         addItem(item) {
