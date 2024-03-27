@@ -1,7 +1,10 @@
 <script>
 import {usehttpStore} from "@/stores/httpstore.js";
+import {useItemsStore} from "@/stores/cart.js";
+import {RouterLink} from "vue-router";
 
 export default {
+  components: {RouterLink},
  data() {
    return {
      product:null
@@ -16,7 +19,13 @@ export default {
   },
   created() {
     this.fetchProduct()
-  }
+  },
+  setup() {
+    const itemStore = useItemsStore();
+    return {
+      itemStore,
+    };
+  },
 }
 </script>
 
@@ -45,8 +54,9 @@ export default {
       <p class="font-bold text-xl">{{product?.price}} $</p>
 
       <div class="card-actions mb-5 font-dm">
-        <button class="btn text-white mb-2 mt-6">ADD TO CART</button>
-        <button class="btn text-white mb-2 mt-6">BUY NOW</button>
+        <RouterLink to="/user-cart">
+          <button @click="itemStore.addItem(product)" class="btn text-white mb-2 mt-6">ADD TO CART</button>
+        </RouterLink>
       </div>
     </div>
   </div>

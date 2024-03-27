@@ -22,7 +22,9 @@ const itemStore = useItemsStore();
       <div class="card-body items-center text-center p-2">
         <h2 class="card-title mb-6">Total</h2>
         <p class="font-bold text-xl">{{ itemStore.totalPrice }} $</p>
-          <button class="btn text-white mb-2 mt-8">CONFIRM & PAY</button>
+        <RouterLink to="/checkout">
+          <button class="btn text-white mb-2 mt-8">CHECKOUT</button>
+        </RouterLink>
       </div>
     </div>
   </div>

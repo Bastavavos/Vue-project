@@ -9,7 +9,7 @@ export default {
     const promo = usehttpStore();
 
     onMounted(() => {
-      promo.getProducts();
+      promo.getPromo();
     })
 
     return {promo};

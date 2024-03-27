@@ -30,51 +30,22 @@ export const usehttpStore = defineStore({
                 console.error('Error fetching product:', error);
             }
         },
+        async getBest() {
+            try {
+                const response = await axios.get("/products?limit=4")
+                this.products = response.data;
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        },
+        async getPromo() {
+            try {
+                const response = await axios.get("/products?sort=asc")
+                this.products = response.data;
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        },
 
     }
 })
-
-// export const usehttpStore = defineStore({
-//     id: 'store',
-//     state: () => ({
-//         products : [],
-//         error : null
-//     }),
-//     getters: {
-//
-//     },
-//     actions: {
-//         async fetchBest() {
-//             try {
-//                 const response = await api_url.get("/products?limit=4")
-//                 this.products = response.data;
-//             } catch (error) {
-//                 console.error('Error fetching products:', error);
-//             }
-//         },
-//         async fetchPromo() {
-//             try {
-//                 const response = await api_url.get("/products?sort=asc")
-//                 this.products = response.data;
-//             } catch (error) {
-//                 console.error('Error fetching products:', error);
-//             }
-//         },
-//         async fetchStore() {
-//             try {
-//                 const response = await api_url.get("/products")
-//                 this.products = response.data;
-//             } catch (error) {
-//                 console.error('Error fetching products:', error);
-//             }
-//         },
-//         async fetchOneProduct() {
-//             try {
-//                 const response = await api_url.get("/products/${id}")
-//                 this.products = response.data;
-//             } catch (error) {
-//                 console.error('Error fetching products:', error);
-//             }
-//         },
-//     },
-// });

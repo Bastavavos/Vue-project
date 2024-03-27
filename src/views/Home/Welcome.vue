@@ -19,7 +19,7 @@ import {RouterLink} from "vue-router";
 
 .btn {
   border-radius: unset;
-  background-color: unset;
+  background-color: black;
 }
 
 </style>

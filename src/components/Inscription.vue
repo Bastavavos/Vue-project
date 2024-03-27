@@ -57,7 +57,9 @@ import {RouterLink} from "vue-router";
   </div>
 
   <div class="flex justify-center mt-10">
-    <button class="btn text-white"><RouterLink to="/sign-in">CONFIRM</RouterLink></button>
+    <RouterLink to="/sign-in">
+    <button class="btn text-white">CONFIRM</button>
+    </RouterLink>
   </div>
 
   <div class="flex justify-center mt-9 font-ryman">

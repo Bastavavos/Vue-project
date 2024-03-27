@@ -1,7 +1,9 @@
 <script>
 import {useItemsStore} from "@/stores/cart.js";
+import {RouterLink} from "vue-router";
 
 export default {
+  components: {RouterLink},
   props: {
     product: Object,
   },
@@ -28,7 +30,9 @@ export default {
       <p>{{product.description.split('.')[0]}}</p>
       <p class="font-bold text-xl">{{product.price}} $</p>
       <div class="card-actions">
-        <button  @click="itemStore.addItem(product)" class="btn text-white mb-2">ADD TO CART</button>
+        <RouterLink to="/user-cart">
+          <button @click="itemStore.addItem(product)" class="btn text-white mb-2">ADD TO CART</button>
+        </RouterLink>
       </div>
     </div>
   </div>

@@ -9,7 +9,7 @@ export default {
     const best = usehttpStore();
 
     onMounted(() => {
-      best.getProducts();
+      best.getBest();
     })
 
     return {best};

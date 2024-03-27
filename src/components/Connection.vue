@@ -16,7 +16,7 @@ import {RouterLink} from "vue-router";
         <div class="label">
           <p>Firstname or email :</p>
         </div>
-        <textarea class="textarea textarea-bordered h-3" placeholder="max 55"></textarea>
+        <textarea class="textarea textarea-bordered h-3"></textarea>
       </label>
     </div>
 
@@ -30,7 +30,9 @@ import {RouterLink} from "vue-router";
     </div>
 
     <div class="flex justify-center mt-10">
-      <button class="btn text-white"><RouterLink to="/">Enter</RouterLink></button>
+      <RouterLink to="/">
+      <button class="btn text-white">ENTER</button>
+      </RouterLink>
     </div>
   </div>
 
