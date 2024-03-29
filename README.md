@@ -1,6 +1,6 @@
 <text align="center">
 
-# - CraftedBy - 
+# - CraftedBy -
 
 **frontend-VueJS-project**
 
