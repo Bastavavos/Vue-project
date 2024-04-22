@@ -1,6 +1,16 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
+<script>
+// import { RouterLink, RouterView } from 'vue-router'
 import HomePage from "@/views/Home/HomePage.vue";
+
+import {usehttpStore} from "@/stores/httpstore.js";
+
+export default {
+  setup() {
+    const store = usehttpStore()
+    return {store}
+  }
+}
+
 </script>
 
 <template>
@@ -20,6 +30,7 @@ import HomePage from "@/views/Home/HomePage.vue";
           <li><RouterLink to="/sign-up">SIGN UP</RouterLink></li>
           <li><RouterLink to="/user-account">MY ACCOUNT</RouterLink></li>
           <li><RouterLink to="/about">ABOUT</RouterLink></li>
+          <li><RouterLink to="/"> <button @click="store.logout">LOG OUT</button></RouterLink></li>
         </ul>
       </div>
       <RouterLink to="/">
@@ -34,6 +45,7 @@ import HomePage from "@/views/Home/HomePage.vue";
         <li><RouterLink to="/sign-up">SIGN UP</RouterLink></li>
         <li><RouterLink to="/user-account">MY ACCOUNT</RouterLink></li>
         <li><RouterLink to="/about">ABOUT</RouterLink></li>
+        <li><RouterLink to="/"> <button @click="store.logout">LOG OUT</button></RouterLink></li>
       </ul>
     </div>
     <div class="navbar-end">

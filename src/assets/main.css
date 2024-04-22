@@ -1,5 +1,9 @@
 @import './base.css';
 
+@font-face {
+    font-family: "Ryman Eco";
+    src: url('../assets/fonts/RymanEco-Regular.otf') format('opentype');
+}
 /*#app {
   max-width: 1280px;
   margin: 0 auto;

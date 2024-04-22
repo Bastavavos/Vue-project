@@ -35,7 +35,7 @@ export default {
   <div class="container">
     <div class="flex justify-center">
       <div class="wrapper">
-        <ProductCard v-for="product in shop.products" :key="product.id" :product="product"/>
+        <ProductCard v-for="product in shop.products" :product="product"/>
       </div>
     </div>
   </div>

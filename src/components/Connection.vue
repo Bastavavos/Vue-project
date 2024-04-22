@@ -1,6 +1,31 @@
-<script setup>
+<script>
+// import {RouterLink} from "vue-router";
+import {usehttpStore} from "@/stores/httpstore.js";
 
-import {RouterLink} from "vue-router";
+export default {
+  data() {
+    return {
+      email: null,
+      password: null,
+      isSubmit: false
+    }
+  },
+  methods: {
+    async loginAction() {
+      let dataLogin, login
+      const httpStore = usehttpStore()
+
+      dataLogin = {
+        email: this.email,
+        password: this.password
+      }
+      this.isSubmit = true
+
+      login = await httpStore.login(dataLogin)
+      console.log(login)
+    }
+  }
+}
 </script>
 
 <template>
@@ -12,30 +37,31 @@ import {RouterLink} from "vue-router";
     </div>
 
     <div class="flex justify-center">
-      <label class="form-control">
-        <div class="label">
-          <p>Firstname or email :</p>
-        </div>
-        <textarea class="textarea textarea-bordered h-3"></textarea>
-      </label>
+      <input
+          v-model="email"
+          type="text"
+          class="border-grey-light p-2 mb-4"
+          name="id"
+          placeholder="email"
+      />
     </div>
 
-    <div class="flex justify-center items-center">
-      <label class="form-control">
-        <div class="label">
-          <p>Password :</p>
-        </div>
-        <textarea class="textarea textarea-bordered h-3"></textarea>
-      </label>
+    <div class="flex justify-center">
+      <input
+          v-model="password"
+          type="text"
+          class="border-grey-light p-2 mb-4"
+          name="password"
+          placeholder="password"
+      />
     </div>
 
     <div class="flex justify-center mt-10">
       <RouterLink to="/">
-      <button class="btn text-white">ENTER</button>
+      <button @click="loginAction" type="submit" class="btn text-white">ENTER</button>
       </RouterLink>
     </div>
   </div>
-
 
 
 </template>

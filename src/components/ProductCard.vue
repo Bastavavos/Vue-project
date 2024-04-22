@@ -26,7 +26,7 @@ export default {
       </figure>
     </RouterLink>
     <div class="card-body items-center text-center p-2">
-      <h2 class="card-title">{{product.title.split(' ')[0]}}</h2>
+      <h2 class="card-title">{{product.name}}</h2>
       <p>{{product.description.split('.')[0]}}</p>
       <p class="font-bold text-xl">{{product.price}} $</p>
       <div class="card-actions">

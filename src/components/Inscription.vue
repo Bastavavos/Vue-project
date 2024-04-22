@@ -1,6 +1,43 @@
-<script setup>
+<script>
+// import {RouterLink} from "vue-router";
+import {usehttpStore} from "@/stores/httpstore.js";
+export default {
+  data() {
+    return {
+      firstname:'',
+      lastname:'',
+      email:'',
+      password:'',
+      address:'',
+      role:'',
+      zip_code:'',
+      city:'',
 
-import {RouterLink} from "vue-router";
+      isSubmit: false
+    }
+  },
+  methods: {
+    async registerAction() {
+      let userData, user
+      const store = usehttpStore()
+
+      userData = {
+        firstname: this.firstname,
+        lastname: this.lastname,
+        email: this.email,
+        password: this.password,
+        address: this.address,
+        role: this.role,
+        zip_code_id: this.zip_code,
+        city_id: this.city
+      }
+      this.isSubmit = true
+
+      user = await store.register(userData)
+      console.log(user)
+    }
+  }
+}
 </script>
 
 <template>
@@ -12,53 +49,88 @@ import {RouterLink} from "vue-router";
   </div>
 
   <div class="flex justify-center">
-    <label class="form-control">
-      <div class="label">
-        <p>Firstname :</p>
-      </div>
-      <textarea class="textarea textarea-bordered h-3" placeholder="max 55"></textarea>
-    </label>
+  <input
+      v-model="firstname"
+      type="text"
+      class="border-grey-light p-2 mb-4"
+      name="firstname"
+      placeholder="firstname"
+  />
   </div>
 
   <div class="flex justify-center">
-    <label class="form-control">
-      <div class="label">
-        <p>Lastname :</p>
-      </div>
-      <textarea class="textarea textarea-bordered h-3" placeholder="max 55"></textarea>
-    </label>
+    <input
+        v-model="lastname"
+        type="text"
+        class="border-grey-light p-2 mb-4"
+        name="lastname"
+        placeholder="lastname"
+    />
   </div>
 
   <div class="flex justify-center">
-    <label class="form-control">
-      <div class="label">
-        <p>Email :</p>
-      </div>
-      <textarea class="textarea textarea-bordered h-3" placeholder="example@mail.com"></textarea>
-    </label>
+    <input
+        v-model="email"
+        type="text"
+        class="border-grey-light p-2 mb-4"
+        name="email"
+        placeholder="email"
+    />
   </div>
 
   <div class="flex justify-center">
-    <label class="form-control">
-      <div class="label">
-        <p>Password :</p>
-      </div>
-      <textarea class="textarea textarea-bordered h-3"></textarea>
-    </label>
+    <input
+        v-model="password"
+        type="text"
+        class="border-grey-light p-2 mb-4"
+        name="password"
+        placeholder="password"
+    />
   </div>
 
   <div class="flex justify-center">
-    <label class="form-control">
-      <div class="label">
-        <p>Address :</p>
-      </div>
-      <textarea class="textarea textarea-bordered h-3" placeholder="..for your next purchases"></textarea>
-    </label>
+    <input
+        v-model="address"
+        type="text"
+        class="border-grey-light p-2 mb-4"
+        name="address"
+        placeholder="address"
+    />
+  </div>
+
+  <div class="flex justify-center">
+    <input
+        v-model="role"
+        type="text"
+        class="border-grey-light p-2 mb-4"
+        name="role"
+        placeholder="Visitor, Customer or Artisan ?"
+    />
+  </div>
+
+  <div class="flex justify-center">
+    <input
+        v-model="zip_code"
+        type="text"
+        class="border-grey-light p-2 mb-4"
+        name="zip_code"
+        placeholder="postal code"
+    />
+  </div>
+
+  <div class="flex justify-center">
+    <input
+        v-model="city"
+        type="text"
+        class="border-grey-light p-2 mb-4"
+        name="city"
+        placeholder="city"
+    />
   </div>
 
   <div class="flex justify-center mt-10">
     <RouterLink to="/sign-in">
-    <button class="btn text-white">CONFIRM</button>
+    <button @click="registerAction" type="submit" class="btn text-white">CONFIRM</button>
     </RouterLink>
   </div>
 
