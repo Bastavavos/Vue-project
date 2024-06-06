@@ -30,7 +30,7 @@ export default {
 
 <template>
 
-  <div class="mt-3 mb-10 font-dm">
+  <div class="mt-3 mb-10 font-pop">
 
     <div class="flex justify-center text-2xl mt-9 mb-4 font-ryman">
       <h1>SIGN IN</h1>
@@ -40,7 +40,7 @@ export default {
       <input
           v-model="email"
           type="text"
-          class="border-grey-light p-2 mb-4"
+          class="border rounded p-2 mb-4 bg-white"
           name="id"
           placeholder="email"
       />
@@ -50,7 +50,7 @@ export default {
       <input
           v-model="password"
           type="text"
-          class="border-grey-light p-2 mb-4"
+          class="border rounded p-2 mb-4 bg-white"
           name="password"
           placeholder="password"
       />
@@ -58,7 +58,7 @@ export default {
 
     <div class="flex justify-center mt-10">
       <RouterLink to="/">
-      <button @click="loginAction" type="submit" class="btn text-white">ENTER</button>
+      <button @click="loginAction" type="submit" class="btn text-white">Go to the store</button>
       </RouterLink>
     </div>
   </div>
@@ -68,7 +68,8 @@ export default {
 
 <style scoped>
 .btn {
-  border-radius: unset;
-  background-color: black;
+  border: unset;
+  border-radius: 5px;
+  background-color: #56b280;
 }
 </style>

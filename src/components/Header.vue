@@ -15,7 +15,7 @@ export default {
 
 <template>
 
-  <div class="navbar bg-base-100 font-dm">
+  <div class="navbar font-pop">
     <div class="navbar-start">
       <div class="dropdown z-20">
         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -24,7 +24,7 @@ export default {
 <!--          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>-->
         </div>
 
-        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 w-52">
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white w-52 rounded">
           <li><RouterLink to="/">HOME</RouterLink></li>
           <li><RouterLink to="/shop">SHOP</RouterLink></li>
           <li><RouterLink to="/sign-up">SIGN UP</RouterLink></li>
@@ -35,9 +35,10 @@ export default {
       </div>
       <RouterLink to="/">
         <h1 class="text-xl font-ryman">CraftedBy.</h1>
-<!--        <img src="/src/assets/Crafted_Logo.webp" alt="logo">-->
+        <!--        <img src="/src/assets/Crafted_Logo.webp" alt="logo">-->
       </RouterLink>
     </div>
+
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
         <li><RouterLink to="/">HOME</RouterLink></li>
@@ -70,6 +71,9 @@ export default {
 <style scoped>
 .navbar {
 /*  background-color: rgba(245,151,148,1%);*/
-  border-bottom: #000000 solid 1px;
+  border-bottom: rgba(0, 0, 0, 0.1) solid 1px;
+}
+h1 {
+  color: #56b280;
 }
 </style>

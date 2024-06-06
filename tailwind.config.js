@@ -6,7 +6,9 @@ export default {
     theme: {
         fontFamily: {
             'ryman':['Ryman Eco'],
-            'dm':['DM Sans']
+            'dm':['DM Sans'],
+            'pop':['Poppins'],
+            'robo':['Roboto']
         }
     }
 };

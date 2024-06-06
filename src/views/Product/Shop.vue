@@ -23,12 +23,14 @@ export default {
     <h1 class="title text-2xl mt-10">SHOP</h1>
   </div>
 
-  <div class="flex justify-center">
-    <select class="select select-bordered w-40 m-5">
-      <option disabled selected>Categories</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
+  <div class="flex justify-center font-pop">
+    <select class="select select-bordered w-40 m-5 bg-white">
+      <option>All products</option>
+<!--      <option disabled selected>All products</option>-->
+      <option>Tools</option>
+      <option>Jewelry</option>
+      <option>Decoration</option>
+      <option>Cosmetic</option>
     </select>
   </div>
 

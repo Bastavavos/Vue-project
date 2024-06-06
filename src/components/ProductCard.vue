@@ -18,7 +18,7 @@ export default {
 
 <template>
 
-  <div class="card bg-base-100 shadow-xl mb-1 font-dm">
+  <div class="card shadow-lg mb-1 font-pop">
     <RouterLink :to="`/product/${product.id}`">
       <figure class="img p-2">
         <img :src="product.image" alt="Product" class="h-32 w-28">
@@ -31,7 +31,7 @@ export default {
       <p class="font-bold text-xl">{{product.price}} $</p>
       <div class="card-actions">
         <RouterLink to="/user-cart">
-          <button @click="itemStore.addItem(product)" class="btn text-white mb-2">ADD TO CART</button>
+          <button @click="itemStore.addItem(product)" class="btn text-white mb-2"><i-ph-bag class="h-4 w-4"></i-ph-bag>Add to cart</button>
         </RouterLink>
       </div>
     </div>
@@ -42,16 +42,18 @@ export default {
 <style scoped>
 .card {
   border-radius: unset;
-  border: solid 1px;
+  //border: solid 1px;
 }
 
 .btn {
-  border-radius: unset;
-  background-color: black;
+  border: unset;
+  border-radius: 5px;
+  background-color: #56b280;
 }
 
 .img {
 border-bottom: solid 1px ;
+  border-color: rgba(0, 0, 0, 0.1);
 }
 </style>
 

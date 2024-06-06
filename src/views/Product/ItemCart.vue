@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-  <div class="card bg-base-100 shadow-xl mb-1 font-dm">
+  <div class="card shadow-lg mb-1 font-pop">
     <RouterLink :to="`/product/${product.id}`">
       <figure class="img p-2">
         <img :src="product.image" alt="Product" class="h-32 w-28">
@@ -23,14 +23,14 @@ export default {
       </figure>
     </RouterLink>
     <div class="card-body items-center text-center p-2">
-      <h2 class="card-title">{{ product.name}}</h2>
+      <h2 class="card-title">{{product.name}}</h2>
       <p class="font-bold text-xl place-items-start">{{ product.price }} $</p>
 
       <p>Quantity</p>
-      <div class="flex flex-row border border-black pr-3 pl-3">
-        <button @click="itemStore.removeItem(product)" class="btn2 text-black">-</button>
+      <div class="flex flex-row border pr-3 pl-3">
+        <button @click="itemStore.removeItem(product)" class="btn2">-</button>
         <p class="pr-3 pl-3"> {{ product.quantity }}</p>
-        <button @click="itemStore.addItem(product)" class="btn2 text-black">+</button>
+        <button @click="itemStore.addItem(product)" class="btn2">+</button>
       </div>
     </div>
   </div>
@@ -38,13 +38,12 @@ export default {
 </template>
 
 <style scoped>
-.btn {
-  border-radius: unset;
-  background-color: black;
-}
-
 .btn2 {
   border-radius: unset;
   background-color: white;
+  border-color: #56b280;
+  color: #56b280;
 }
+
+
 </style>

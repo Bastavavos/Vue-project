@@ -4,10 +4,10 @@
 
 <template>
 
-  <div class="flex justify-center text-center mt-8 text-2xl">
+  <div class="flex justify-center text-center mt-8 text-2xl font-ryman">
     <h1>Our project..</h1>
   </div>
-  <div class="about flex justify-center text-center m-8">
+  <div class="about flex justify-center m-8 text-center font-pop mx-72">
     <p>
       Inter quos Paulus eminebat notarius ortus in Hispania, glabro quidam sub vultu latens,
       odorandi vias periculorum occultas perquam sagax.
@@ -20,9 +20,5 @@
 </template>
 
 <style>
-
-  p {
-    font-family: DM Sans,serif;
-  }
 
 </style>

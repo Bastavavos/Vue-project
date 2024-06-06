@@ -8,7 +8,9 @@ export const useItemsStore = defineStore({
     }),
     getters: {
         totalPrice: (state) => computed(() => {
-            return state.items.reduce((total, item) => total + item.price * item.quantity, 0);
+            const total = state.items.reduce((total, item) => total + item.price * item.quantity, 0);
+            return parseFloat(total.toFixed(2));
+            // return state.items.reduce((total, item) => total + item.price * item.quantity, 0);
         }),
     },
     actions: {

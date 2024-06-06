@@ -4,13 +4,13 @@
 
 <template>
 
-  <footer class="footer p-10 bg-base-200 text-base-content text-white font-dm">
+  <footer class="footer p-10 bg-base-200 text-base-content text-white font-pop">
     <nav>
       <h6 class="footer-title">SHOP</h6>
-      <a class="link link-hover">All Products</a>
-      <a class="link link-hover">All Craftsman</a>
+      <a class="link link-hover">Products</a>
+      <a class="link link-hover">Craftsmans</a>
       <a class="link link-hover">Promotions</a>
-      <a class="link link-hover">New</a>
+      <a class="link link-hover">News</a>
     </nav>
     <nav>
       <h6 class="footer-title">LEARN</h6>
@@ -41,7 +41,11 @@
 <style scoped>
 
  .footer {
-   background-color: black;
+   background-color: rgba(0, 0, 0, 0.85);
+ }
+
+ h6 {
+   color: #56b280;
  }
 
 </style>

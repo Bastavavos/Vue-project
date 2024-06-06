@@ -42,7 +42,7 @@ export default {
 
 <template>
 
-<div class="mt-3 mb-10 font-dm">
+<div class="mt-3 mb-10 font-pop">
 
   <div class="flex justify-center text-2xl mt-9 mb-4 font-ryman">
     <h1>SIGN UP</h1>
@@ -52,7 +52,7 @@ export default {
   <input
       v-model="firstname"
       type="text"
-      class="border-grey-light p-2 mb-4"
+      class="border rounded p-2 mb-4 bg-white"
       name="firstname"
       placeholder="firstname"
   />
@@ -62,7 +62,7 @@ export default {
     <input
         v-model="lastname"
         type="text"
-        class="border-grey-light p-2 mb-4"
+        class="border rounded p-2 mb-4 bg-white"
         name="lastname"
         placeholder="lastname"
     />
@@ -72,7 +72,7 @@ export default {
     <input
         v-model="email"
         type="text"
-        class="border-grey-light p-2 mb-4"
+        class="border rounded p-2 mb-4 bg-white"
         name="email"
         placeholder="email"
     />
@@ -82,7 +82,7 @@ export default {
     <input
         v-model="password"
         type="text"
-        class="border-grey-light p-2 mb-4"
+        class="border rounded p-2 mb-4 bg-white"
         name="password"
         placeholder="password"
     />
@@ -92,7 +92,7 @@ export default {
     <input
         v-model="address"
         type="text"
-        class="border-grey-light p-2 mb-4"
+        class="border rounded p-2 mb-4 bg-white"
         name="address"
         placeholder="address"
     />
@@ -102,9 +102,9 @@ export default {
     <input
         v-model="role"
         type="text"
-        class="border-grey-light p-2 mb-4"
+        class="border rounded p-2 mb-4 bg-white"
         name="role"
-        placeholder="Visitor, Customer or Artisan ?"
+        placeholder="customer or artisan ?"
     />
   </div>
 
@@ -112,7 +112,7 @@ export default {
     <input
         v-model="zip_code"
         type="text"
-        class="border-grey-light p-2 mb-4"
+        class="border rounded p-2 mb-4 bg-white"
         name="zip_code"
         placeholder="postal code"
     />
@@ -122,19 +122,19 @@ export default {
     <input
         v-model="city"
         type="text"
-        class="border-grey-light p-2 mb-4"
+        class="border rounded p-2 mb-4 bg-white"
         name="city"
         placeholder="city"
     />
   </div>
 
-  <div class="flex justify-center mt-10">
+  <div class="flex justify-center mt-5 font-pop">
     <RouterLink to="/sign-in">
-    <button @click="registerAction" type="submit" class="btn text-white">CONFIRM</button>
+    <button @click="registerAction" type="submit" class="btn text-white">Confirm</button>
     </RouterLink>
   </div>
 
-  <div class="flex justify-center mt-9 font-ryman">
+  <div class="flex justify-center mt-9 font-pop">
     <h1 class="text-xl">Thanks for your registration !</h1>
   </div>
 
@@ -144,7 +144,9 @@ export default {
 
 <style scoped>
 .btn {
-  border-radius: unset;
-  background-color: black;
+  border: unset;
+  border-radius: 5px;
+  background-color: #56b280;
 }
+
 </style>

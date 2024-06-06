@@ -8,8 +8,12 @@ const itemStore = useItemsStore();
 <template>
 
   <div class="flex justify-center font-ryman">
-    <h1 class="title text-2xl m-10">My Cart</h1>
+    <h1 class="title text-2xl mt-10 mb-4">Your cart items</h1>
   </div>
+  <div class="font-pop flex justify-center">
+    <RouterLink to="/shop"><p class="mb-10" id="back">Back to shopping</p></RouterLink>
+  </div>
+
 
   <div class="container">
     <div class="flex justify-center">
@@ -18,12 +22,12 @@ const itemStore = useItemsStore();
       </div>
     </div>
 
-    <div class="card bg-base-100 shadow-xl mb-10 mt-5 font-dm">
+    <div class="card shadow-lg mb-10 mt-5 font-pop">
       <div class="card-body items-center text-center p-2">
         <h2 class="card-title mb-6">Total</h2>
         <p class="font-bold text-xl">{{ itemStore.totalPrice }} $</p>
         <RouterLink to="/checkout">
-          <button class="btn text-white mb-2 mt-8">CHECKOUT</button>
+          <button class="btn text-white mb-2 mt-8">Checkout</button>
         </RouterLink>
       </div>
     </div>
@@ -34,8 +38,8 @@ const itemStore = useItemsStore();
 <style scoped>
 
 .card {
-  border-radius: unset;
-  border: solid 1px;
+  border-radius: 5px;
+  //border: solid 1px;
 }
 .wrapper {
   display: grid;
@@ -52,8 +56,14 @@ const itemStore = useItemsStore();
   transition: padding .4s ease-in-out;
 }
 .btn {
-  border-radius: unset;
-  background-color: black;
+  border: unset;
+  border-radius: 5px;
+  background-color: #56b280;
+}
+
+#back {
+  color: #56b280;
+  text-decoration: underline;
 }
 </style>
 
