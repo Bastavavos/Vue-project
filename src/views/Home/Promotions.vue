@@ -20,10 +20,10 @@ export default {
 <template>
 
   <div class="flex justify-center">
-    <h1 class="title text-2xl m-10 font-ryman">PROMOTIONS</h1>
+    <h1 class="title text-2xl m-10 font-pop">PROMOTIONS</h1>
   </div>
   <div class="container">
-    <div class="flex justify-center">
+    <div class="flex justify-center mb-12">
       <div class="wrapper">
         <ProductCard v-for="product in promo.products" :key="product.id" :product="product"/>
       </div>

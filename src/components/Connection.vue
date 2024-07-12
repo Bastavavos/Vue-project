@@ -32,7 +32,7 @@ export default {
 
   <div class="mt-3 mb-10 font-pop">
 
-    <div class="flex justify-center text-2xl mt-9 mb-4 font-ryman">
+    <div class="flex justify-center text-2xl mt-9 mb-4 font-pop">
       <h1>SIGN IN</h1>
     </div>
 

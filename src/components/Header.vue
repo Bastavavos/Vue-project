@@ -3,11 +3,13 @@
 import HomePage from "@/views/Home/HomePage.vue";
 
 import {usehttpStore} from "@/stores/httpstore.js";
+import {useItemsStore} from "@/stores/cart.js";
 
 export default {
   setup() {
     const store = usehttpStore()
-    return {store}
+    const itemsStore = useItemsStore();
+    return {store, itemsStore}
   }
 }
 
@@ -49,6 +51,7 @@ export default {
         <li><RouterLink to="/"> <button @click="store.logout">LOG OUT</button></RouterLink></li>
       </ul>
     </div>
+
     <div class="navbar-end">
       <button class="btn btn-ghost btn-circle">
         <RouterLink to="/sign-in">
@@ -57,12 +60,14 @@ export default {
 <!--          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="96" r="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M32,216c19.37-33.47,54.55-56,96-56s76.63,22.53,96,56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>-->
         </RouterLink>
       </button>
-      <button class="btn btn-ghost btn-circle">
-        <RouterLink to="/user-cart">
-          <i-ph-bag class="h-5 w-5"></i-ph-bag>
-<!--        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="80" cy="216" r="16"/><circle cx="184" cy="216" r="16"/><path d="M42.29,72H224l-28.52,92.71A16,16,0,0,1,180.18,176H84.07a16,16,0,0,1-15.39-11.6L32.51,37.8A8,8,0,0,0,24.82,32H8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>-->
-        </RouterLink>
-      </button>
+      <div class="">
+        <button class="btn btn-ghost btn-circle">
+          <RouterLink to="/user-cart" class="flex items-center space-x-2">
+            <span class="font-semibold">{{ itemsStore.cartItemCount }}</span>
+            <i-ph-bag class="h-5 w-5"></i-ph-bag>
+          </RouterLink>
+        </button>
+      </div>
     </div>
   </div>
 

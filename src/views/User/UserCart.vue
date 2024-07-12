@@ -1,14 +1,13 @@
 <script setup>
 import {useItemsStore} from "@/stores/cart.js";
 import ItemCart from "@/views/Product/ItemCart.vue";
-import itemCart from "../Product/ItemCart.vue";
 const itemStore = useItemsStore();
 </script>
 
 <template>
 
-  <div class="flex justify-center font-ryman">
-    <h1 class="title text-2xl mt-10 mb-4">Your cart items</h1>
+  <div class="flex justify-center font-pop">
+    <h1 class="title text-2xl mt-10 mb-4">MY CART</h1>
   </div>
   <div class="font-pop flex justify-center">
     <RouterLink to="/shop"><p class="mb-10" id="back">Back to shopping</p></RouterLink>
@@ -24,6 +23,7 @@ const itemStore = useItemsStore();
 
     <div class="card shadow-lg mb-10 mt-5 font-pop">
       <div class="card-body items-center text-center p-2">
+        <button @click="itemStore.removeAllItems()" class="mb-10" id="back">Clear cart</button>
         <h2 class="card-title mb-6">Total</h2>
         <p class="font-bold text-xl">{{ itemStore.totalPrice }} $</p>
         <RouterLink to="/checkout">

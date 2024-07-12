@@ -3,27 +3,23 @@ import {RouterLink} from "vue-router";
 </script>
 
 <template>
-
   <div>
     <div class="flex justify-center items-center">
-      <img src="/src/assets/LandingCrafted.webp" alt="CraftedBy SHOP NOW bg">
+      <img class="lg:w-full" src="/src/assets/LandingCrafted.webp" alt="CraftedBy bg">
       <!--    <img src="https://www.cma77.fr/uploads/_crma_77/actualite/adobestock-374274031.jpeg" alt="Craft"/>-->
-
-      <div class="card-body absolute z-10 rounded bg-white/80 text-center">
-        <h1 class="font-pop text-black text-2xl">
-          The know-how
+      <div class="absolute z-10 bg-white bg-white/90 text-center px-8 sm:px-14 md:px-10 lg:px-12 xl:px-16 py-4 sm:py-6 md:py-8 lg:py-12 xl:py-16">
+        <h1 class="font-pop text-black text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">
+          The know-how of Artisans
         </h1>
-        <h1 class="font-pop text-black text-2xl">
-          of Artisans
-        </h1>
-        <button class="btn font-robo hover: text-white mr-7 ml-7 mt-4">
-          <RouterLink to="/shop">Discovery our collection</RouterLink>
+        <h2 class="font-pop text-gray-500 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl pt-4 sm:pt-5 md:pt-6 lg:pt-7 xl:pt-8">
+          Each product has been handmade by expert artisans in their category.
+        </h2>
+        <button class="btn font-robo text-white text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl mr-2 sm:mr-4 md:mr-6 lg:mr-8 xl:mr-10 ml-2 sm:ml-4 md:ml-6 lg:ml-8 xl:ml-10 mt-2 sm:mt-4 md:mt-6 lg:mt-8 xl:mt-10">
+          <RouterLink to="/shop">Discover our collection</RouterLink>
         </button>
       </div>
-
     </div>
   </div>
-
 </template>
 
 
@@ -34,5 +30,4 @@ import {RouterLink} from "vue-router";
   border-radius: 5px;
   background-color: #56b280;
 }
-
 </style>
