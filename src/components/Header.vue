@@ -1,7 +1,4 @@
 <script>
-// import { RouterLink, RouterView } from 'vue-router'
-import HomePage from "@/views/Home/HomePage.vue";
-
 import {usehttpStore} from "@/stores/httpstore.js";
 import {useItemsStore} from "@/stores/cart.js";
 
@@ -10,7 +7,18 @@ export default {
     const store = usehttpStore()
     const itemsStore = useItemsStore();
     return {store, itemsStore}
-  }
+  },
+  data() {
+    return {
+      isDarkTheme: false,
+    };
+  },
+  methods: {
+    toggleTheme() {
+      this.isDarkTheme = !this.isDarkTheme;
+      document.documentElement.classList.toggle('dark-theme');
+    },
+  },
 }
 
 </script>
@@ -19,6 +27,12 @@ export default {
 
   <div class="navbar font-pop">
     <div class="navbar-start">
+      <div class="flex align-items-center pr-5">
+        <button @click="toggleTheme">
+          <i-ph-moon v-if="!isDarkTheme"></i-ph-moon>
+          <i-ph-sun v-else></i-ph-sun>
+        </button>
+      </div>
       <div class="dropdown z-20">
         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
         <!--          use auto import icon-->

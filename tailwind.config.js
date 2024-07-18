@@ -1,6 +1,7 @@
 import daisyui from "daisyui"
 
 export default {
+    darkMode: 'class',
     content: ['./src/**/*.{vue,js,ts}'],
     plugins: [daisyui],
     theme: {

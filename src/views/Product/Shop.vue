@@ -10,10 +10,10 @@ export default {
     const selectedCategory = ref('All products'); // new test
     const categoryMap = { // Map of categories by uuid API
       'All products': null,
-      Tools: '623bd136-e29e-4a60-9d2d-4a671c36c0bd',
-      Jewelry: '49e63eeb-ccb3-4626-a211-489dc531688a',
-      Decoration: 'e2dd60f1-f222-4542-8bc9-7ce454f90e60',
-      Cosmetic: 'b709cd70-8dc0-4b8e-952a-f8f6a994ed4d'
+      Tools: 'fdcd269b-0630-4f44-8f50-e8bf35b8d87e',
+      Jewelry: 'ca33b838-8eae-4a68-bbc5-9a2b1e6aeb97',
+      Decoration: 'a8fd43a2-36cf-4406-902b-7dc2a283d836',
+      Cosmetic: 'f6dbdcac-dee6-47b4-9624-63e3a5eb4545'
     };
 
     onMounted(() => {
@@ -30,16 +30,6 @@ export default {
         }
       }
     });
-
-    // watch(selectedCategory, async (newValue) => {
-    //   const categoryId = categoryMap[newValue]; // UUID category
-    //   if (categoryId !== 'All products') {
-    //     await shop.getProductsByCategory(categoryId); // take products by category if uuid specified
-    //   } else {
-    //     await shop.getProducts();
-    //   }
-    // });
-
     return {shop, selectedCategory};
   }
 }
