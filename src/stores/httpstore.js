@@ -34,7 +34,15 @@ export const usehttpStore = defineStore({
                 console.error('Error fetching product:', error);
             }
         },
-        async login(loginData){
+        async getProductsByCategory(categoryId) {
+            try {
+                let response = await axios.get(`/products/category/${categoryId}`);
+                this.products = response.data;
+            } catch (error) {
+                console.error('Error fetching products by category:', error);
+            }
+        },
+        async login(loginData, token){
             try{
                 let response = await axios.post('auth/login', loginData)
                 this.user = response.data.user
@@ -55,7 +63,6 @@ export const usehttpStore = defineStore({
             this.token = null
             delete axios.defaults.headers.common
         },
-
         async register(userData){
             try {
                 return await axios.post('auth/register', userData)
@@ -63,7 +70,6 @@ export const usehttpStore = defineStore({
                 console.log(error)
             }
         },
-
         async getBest() {
             try {
                 const response = await axios.get("/products?limit=4")
@@ -80,5 +86,5 @@ export const usehttpStore = defineStore({
                 console.error('Error fetching products:', error);
             }
         },
-    }
+    },
 })
