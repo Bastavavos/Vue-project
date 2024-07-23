@@ -13,7 +13,7 @@
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
 
-  --vt-c-black: #222222;
+  --vt-c-black: #151515;
   --vt-c-black-soft: #222222;
   --vt-c-black-mute: #282828;
 
@@ -21,8 +21,8 @@
 
   --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
   --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+  --vt-c-divider-dark-1: rgba(255, 255, 255, 0.9);
+  --vt-c-divider-dark-2: rgba(255, 255, 255, 0.9);
 
   --vt-c-text-light-1: var(--vt-c-indigo);
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
@@ -60,14 +60,18 @@
 }
 
 .dark-theme {
+/*  --color-background: var(--vt-c-black);*/
   --color-background: var(--vt-c-black);
   --color-background-soft: var(--vt-c-black-soft);
   --color-background-mute: var(--vt-c-black-mute);
 
-  --color-border: var(--vt-c-divider-dark-2);
+/*  --color-border: var(--vt-c-divider-dark-2);
+  --color-border-hover: var(--vt-c-divider-dark-1);*/
+
+  --color-border: var(--vt-c-black);
   --color-border-hover: var(--vt-c-divider-dark-1);
 
-  --color-heading: var(--vt-c-text-dark-1);
+  --color-heading: var(--vt-c-black);
   --color-text: var(--vt-c-text-dark-2);
 }
 

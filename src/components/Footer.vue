@@ -1,9 +1,7 @@
 <script setup>
-
 </script>
 
 <template>
-
   <footer class="footer p-10 bg-base-200 text-base-content text-white font-pop">
     <div>
       <h6 class="footer-title">SHOP</h6>

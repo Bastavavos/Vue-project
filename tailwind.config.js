@@ -10,6 +10,6 @@ export default {
             'dm':['DM Sans'],
             'pop':['Poppins'],
             'robo':['Roboto']
-        }
+        },
     }
 };

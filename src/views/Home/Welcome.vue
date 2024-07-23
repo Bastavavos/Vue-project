@@ -1,9 +1,8 @@
-<script setup>
-import {RouterLink} from "vue-router";
+<script>
 </script>
 
 <template>
-  <div>
+  <div class="pt-16">
     <div class="flex justify-center items-center">
       <img class="lg:w-full" src="/src/assets/LandingCrafted.webp" alt="CraftedBy bg">
       <!--    <img src="https://www.cma77.fr/uploads/_crma_77/actualite/adobestock-374274031.jpeg" alt="Craft"/>-->

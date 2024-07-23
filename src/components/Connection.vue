@@ -1,5 +1,4 @@
 <script>
-// import {RouterLink} from "vue-router";
 import {usehttpStore} from "@/stores/httpstore.js";
 
 export default {
@@ -29,18 +28,15 @@ export default {
 </script>
 
 <template>
-
   <div class="mt-3 mb-10 font-pop">
-
     <div class="flex justify-center text-2xl mt-9 mb-4 font-pop">
       <h1>SIGN IN</h1>
     </div>
-
     <div class="flex justify-center">
       <input
           v-model="email"
           type="text"
-          class="border rounded p-2 mb-4 bg-white"
+          class="border rounded p-2 mb-4"
           name="id"
           placeholder="email"
       />
@@ -50,7 +46,7 @@ export default {
       <input
           v-model="password"
           type="text"
-          class="border rounded p-2 mb-4 bg-white"
+          class="border rounded p-2 mb-4"
           name="password"
           placeholder="password"
       />

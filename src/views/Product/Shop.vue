@@ -37,8 +37,8 @@ export default {
 
 <template>
 
-  <div class="flex justify-center">
-    <h1 class="title text-2xl mt-10 font-pop">SHOP</h1>
+  <div class="flex justify-center pt-16">
+    <h1 class="title text-2xl mt-6 font-pop">SHOP</h1>
   </div>
 
   <div class="flex justify-center font-pop">

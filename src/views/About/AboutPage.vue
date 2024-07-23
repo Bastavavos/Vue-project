@@ -1,9 +1,9 @@
-<script setup>
+<script>
 </script>
 
 <template>
 
-  <div class="flex justify-center text-center mt-8 text-2xl font-pop">
+  <div class="flex justify-center text-center mt-8 text-2xl font-pop pt-20">
     <h1>Our project..</h1>
   </div>
   <div class="about flex justify-center m-8 text-center font-robo">
