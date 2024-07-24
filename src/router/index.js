@@ -50,6 +50,11 @@ const router = createRouter({
       path: '/checkout',
       name: 'checkout',
       component: () => import('../views/User/Checkout.vue')
+    },
+    {
+      path: '/artisan-space',
+      name: 'artisan-space',
+      component: () => import('../views/User/ArtisanSpace.vue')
     }
   ]
 })

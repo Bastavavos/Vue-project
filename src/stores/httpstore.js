@@ -17,6 +17,43 @@ export const usehttpStore = defineStore({
         },
     },
     actions:{
+        async register(userData){
+            try {
+                return await axios.post('auth/register', userData)
+            } catch (error) {
+                console.log(error)
+            }
+        },
+        async login(loginData, token){
+            try{
+                let response = await axios.post('auth/login', loginData)
+                this.user = response.data.user
+                this.token = response.data.token
+
+                // setting the token for future request
+                axios.defaults.headers.common = {
+                    'Authorization': `Bearer ${token}`
+                }
+                // this.authenticated = true
+                return this.user
+            } catch (error) {
+                console.log(error)
+            }
+        },
+        async logout(token) {
+            try {
+                axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+                let response = await axios.post('auth/logout');
+                delete axios.defaults.headers.common['Authorization'];
+                this.user = null;
+                this.token = null;
+                return response.data;
+            } catch (error) {
+                console.log(error);
+                this.user = null;
+                this.token = null;
+            }
+        },
         async getProducts(){
             try {
                 let response = await axios.get("/products")
@@ -42,34 +79,7 @@ export const usehttpStore = defineStore({
                 console.error('Error fetching products by category:', error);
             }
         },
-        async login(loginData, token){
-            try{
-                let response = await axios.post('auth/login', loginData)
-                this.user = response.data.user
-                this.token = response.data.token
 
-                // setting the token for future request
-                axios.defaults.headers.common = {
-                    'Authorization': `Bearer ${token}`
-                }
-                // this.authenticated = true
-                return this.user
-            } catch (error) {
-                console.log(error)
-            }
-        },
-        logout(){
-            this.user = null
-            this.token = null
-            delete axios.defaults.headers.common
-        },
-        async register(userData){
-            try {
-                return await axios.post('auth/register', userData)
-            } catch (error) {
-                console.log(error)
-            }
-        },
         async getBest() {
             try {
                 const response = await axios.get("/products?limit=4")

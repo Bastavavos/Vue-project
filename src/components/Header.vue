@@ -2,13 +2,16 @@
 import {usehttpStore} from "@/stores/httpstore.js";
 import {useItemsStore} from "@/stores/cart.js";
 import {computed} from "vue";
+import axios from "axios";
+import {useRouter} from "vue-router";
 
 export default {
   setup() {
     const store = usehttpStore()
     const itemsStore = useItemsStore();
     const isAuthenticated = computed(() => !!store.user);
-    return {store, itemsStore, isAuthenticated}
+    const router = useRouter();
+    return {store, itemsStore, isAuthenticated, router}
   },
   data() {
     return {
@@ -20,6 +23,14 @@ export default {
       this.isDarkTheme = !this.isDarkTheme;
       document.documentElement.classList.toggle('dark-theme');
     },
+    async logoutAction() {
+      let logout
+      const httpStore = usehttpStore()
+      let token = httpStore.token
+      logout = await httpStore.logout(token);
+      console.log(logout);
+      await this.router.push('/');
+    }
   },
 }
 </script>
@@ -60,18 +71,19 @@ export default {
     </ul>
   </div>
   <div class="navbar-end">
-    <RouterLink to="/sign-in" v-if="!isAuthenticated" @click.prevent=store.login >
+    <RouterLink to="/sign-in" v-if="!isAuthenticated">
     <button class="btn btn-ghost flex flex-row">
       <i-ph-SignIn class="h-5 w-5 mr-1"></i-ph-SignIn>
       <div>SIGN IN</div>
     </button>
     </RouterLink>
-    <RouterLink to="/" v-else @click.prevent=store.logout>
-      <button class="btn btn-ghost flex flex-row">
-        <i-ph-power class="h-5 w-5 mr-1"></i-ph-power>
+      <button v-else @click="logoutAction" class="btn btn-ghost flex flex-row">
+        <i-ph-power class="h-4 w-4 mr-1"></i-ph-power>
+<!--        <RouterLink to="/">-->
         <div>LOG OUT</div>
+<!--        </RouterLink>-->
       </button>
-    </RouterLink>
+
     <div>
       <button class="btn btn-ghost btn-circle">
         <RouterLink to="/user-cart" class="flex items-center space-x-2">
