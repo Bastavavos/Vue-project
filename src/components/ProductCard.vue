@@ -22,7 +22,6 @@ export default {
     <RouterLink :to="`/product/${product.id}`">
       <figure class="img p-2">
         <img :src="product.image" alt="Product" class="h-32 w-28">
-<!--        <img src="https://www.creationapart.fr/475-home_default/bague-cubes-.jpg" alt="Ring" class="h-32 w-28"/>-->
       </figure>
     </RouterLink>
     <div class="card-body items-center text-center p-2">
@@ -30,9 +29,7 @@ export default {
       <p>{{product.description.split('.')[0]}}</p>
       <p class="font-bold text-xl">{{product.price}} $</p>
       <div class="card-actions">
-        <RouterLink to="/shop">
           <button @click="itemStore.addItem(product)" class="btn text-white mb-2"><i-ph-bag class="h-4 w-4"></i-ph-bag>Add to cart</button>
-        </RouterLink>
       </div>
     </div>
   </div>

@@ -14,7 +14,8 @@ export default {
       zip_code: '',
       city: '',
 
-      isSubmit: false
+      isSubmit: false,
+      isDarkTheme: false,
     }
   },
   methods: {
@@ -42,10 +43,10 @@ export default {
 </script>
 
 <template>
-
+<div class="pt-20">
   <div class="mt-3 mb-10 font-pop">
 
-    <div class="flex justify-center text-2xl mt-9 mb-4 font-pop">
+    <div class="flex justify-center text-2xl mt-9 mb-10 font-pop">
       <h1>SIGN UP</h1>
     </div>
 
@@ -56,6 +57,7 @@ export default {
           class="border rounded p-2 mb-4 bg-white"
           name="firstname"
           placeholder="firstname"
+          :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
       />
     </div>
 
@@ -66,6 +68,7 @@ export default {
           class="border rounded p-2 mb-4 bg-white"
           name="lastname"
           placeholder="lastname"
+          :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
       />
     </div>
 
@@ -76,6 +79,7 @@ export default {
           class="border rounded p-2 mb-4 bg-white"
           name="email"
           placeholder="email"
+          :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
       />
     </div>
 
@@ -86,6 +90,7 @@ export default {
           class="border rounded p-2 mb-4 bg-white"
           name="password"
           placeholder="password"
+          :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
       />
     </div>
 
@@ -96,6 +101,7 @@ export default {
           class="border rounded p-2 mb-4 bg-white"
           name="address"
           placeholder="address"
+          :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
       />
     </div>
 
@@ -106,6 +112,7 @@ export default {
           class="border rounded p-2 mb-4 bg-white"
           name="role"
           placeholder="customer or artisan ?"
+          :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
       />
     </div>
 
@@ -116,6 +123,7 @@ export default {
           class="border rounded p-2 mb-4 bg-white"
           name="zip_code"
           placeholder="postal code"
+          :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
       />
     </div>
 
@@ -126,6 +134,7 @@ export default {
           class="border rounded p-2 mb-4 bg-white"
           name="city"
           placeholder="city"
+          :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
       />
     </div>
 
@@ -138,8 +147,8 @@ export default {
     <div class="flex justify-center mt-9 font-pop">
       <h1 class="text-xl">Thanks for your registration !</h1>
     </div>
-
   </div>
+</div>
 
 </template>
 

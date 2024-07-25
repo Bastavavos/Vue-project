@@ -1,4 +1,11 @@
 <script>
+export default {
+  data() {
+    return {
+      isDarkTheme: false,
+    }
+  }
+}
 </script>
 
 <template>
@@ -6,7 +13,7 @@
     <div class="flex justify-center items-center">
       <img class="lg:w-full" src="/src/assets/LandingCrafted.webp" alt="CraftedBy bg">
       <!--    <img src="https://www.cma77.fr/uploads/_crma_77/actualite/adobestock-374274031.jpeg" alt="Craft"/>-->
-      <div class="absolute z-10 bg-white bg-white/90 text-center px-8 sm:px-14 md:px-10 lg:px-12 xl:px-16 py-4 sm:py-6 md:py-8 lg:py-12 xl:py-16">
+      <div class="absolute z-10 bg-white/70 text-center px-8 sm:px-14 md:px-10 lg:px-12 xl:px-16 py-4 sm:py-6 md:py-8 lg:py-12 xl:py-16">
         <h1 class="font-pop text-black text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">
           The know-how of Artisans
         </h1>

@@ -48,29 +48,29 @@ export default {
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
         <i-ph-list class="h-5 w-5"></i-ph-list>
       </div>
-      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white w-52 rounded">
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow w-52 rounded" :class="{'bg-white': !isDarkTheme, 'bg-black': isDarkTheme}">
         <li><RouterLink to="/">HOME</RouterLink></li>
         <li><RouterLink to="/about">ABOUT</RouterLink></li>
         <li><RouterLink to="/shop">SHOP</RouterLink></li>
+        <li><RouterLink to="/artisan-space">ARTISAN</RouterLink></li>
         <li><RouterLink to="/user-account">MY ACCOUNT</RouterLink></li>
-        <li><RouterLink to="/sign-in">SIGN-IN</RouterLink></li>
       </ul>
     </div>
     <RouterLink to="/">
       <h1 class="text-xl font-ryman">CraftedBy.</h1>
-      <!--        <img src="/src/assets/Crafted_Logo.webp" alt="logo">-->
     </RouterLink>
   </div>
   <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
-      <li><RouterLink to="/">HOME</RouterLink></li>
-      <li><RouterLink to="/about">ABOUT</RouterLink></li>
-      <li><RouterLink to="/shop">SHOP</RouterLink></li>
-      <li><RouterLink to="/sign-up">SIGN UP</RouterLink></li>
-      <li><RouterLink to="/user-account">MY ACCOUNT</RouterLink></li>
-    </ul>
+    <div class="menu menu-horizontal px-1">
+      <button class="btn btn-ghost"><RouterLink to="/">HOME</RouterLink></button>
+      <button class="btn btn-ghost"><RouterLink to="/about">ABOUT</RouterLink></button>
+      <button class="btn btn-ghost"><RouterLink to="/shop">SHOP</RouterLink></button>
+      <button class="btn btn-ghost"><RouterLink to="/artisan-space">ARTISAN</RouterLink></button>
+      <button class="btn btn-ghost"><RouterLink to="/user-account">MY ACCOUNT</RouterLink></button>
+    </div>
   </div>
-  <div class="navbar-end">
+
+  <div class="navbar-end hidden lg:flex">
     <RouterLink to="/sign-in" v-if="!isAuthenticated">
     <button class="btn btn-ghost flex flex-row">
       <i-ph-SignIn class="h-5 w-5 mr-1"></i-ph-SignIn>
@@ -79,21 +79,25 @@ export default {
     </RouterLink>
       <button v-else @click="logoutAction" class="btn btn-ghost flex flex-row">
         <i-ph-power class="h-4 w-4 mr-1"></i-ph-power>
-<!--        <RouterLink to="/">-->
         <div>LOG OUT</div>
-<!--        </RouterLink>-->
       </button>
+    <div>|</div>
+    <button class="btn btn-ghost">
+      <RouterLink to="/sign-up">SIGN UP</RouterLink>
+    </button>
 
-    <div>
+    <RouterLink to="/user-cart" class="flex items-center pl-5">
+      <span class="font-semibold">{{ itemsStore.cartItemCount }}</span>
       <button class="btn btn-ghost btn-circle">
-        <RouterLink to="/user-cart" class="flex items-center space-x-2">
-          <span class="font-semibold">{{ itemsStore.cartItemCount }}</span>
-          <i-ph-bag class="h-5 w-5"></i-ph-bag>
-        </RouterLink>
+        <i-ph-bag class="h-5 w-5"></i-ph-bag>
       </button>
-    </div>
+    </RouterLink>
   </div>
+
+
+
 </div>
+
 </template>
 
 <style scoped>

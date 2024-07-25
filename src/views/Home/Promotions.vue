@@ -7,41 +7,34 @@ export default {
   components: {ProductCard},
   setup() {
     const promo = usehttpStore();
-
     onMounted(() => {
-      promo.getPromo();
+      promo.getPromoProducts();
     })
-
     return {promo};
   }
 }
 </script>
 
 <template>
-
-  <div class="flex justify-center">
-    <h1 class="title text-2xl m-10 font-pop">PROMOTIONS</h1>
+  <div class="flex justify-center mt-10 mb-10">
+    <h1 class="title text-2xl m-10 font-pop">GOOD DEALS</h1>
   </div>
-  <div class="container">
-    <div class="flex justify-center mb-12">
+  <div class="container pb-32">
+    <div class="flex justify-center">
       <div class="wrapper">
-        <ProductCard v-for="product in promo.products" :key="product.id" :product="product"/>
+        <ProductCard v-for="product in promo.promoProducts" :key="product.id" :product="product"/>
       </div>
     </div>
   </div>
-
-
 </template>
 
 <style scoped>
-
 .wrapper {
   display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 30px;
+  grid-template-columns: repeat(3,minmax(0,1fr));
   grid-auto-rows: auto;
 }
-
 .container {
   margin: 0 auto;
   max-width: 1490px;
@@ -50,6 +43,5 @@ export default {
   -webkit-transition: padding .4s ease-in-out;
   transition: padding .4s ease-in-out;
 }
-
 </style>
 

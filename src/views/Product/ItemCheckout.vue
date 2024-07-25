@@ -23,13 +23,10 @@ export default {
     </RouterLink>
     <div class="card-body items-center text-center p-2">
       <h2 class="card-title">{{product.name}}</h2>
-      <p class="font-medium text-xl place-items-start pt-2">{{ product.price }} $</p>
-
-      <p class="pt-2">Quantity</p>
-      <div class="flex flex-row border">
-        <button @click="itemStore.removeItem(product)" class="btn2 btn-ghost btn-circle"> - </button>
-        <p class="pt-3 font-bold"> {{ product.quantity }}</p>
-        <button @click="itemStore.addItem(product)" class="btn2 btn-ghost btn-circle"> + </button>
+      <p class="font-medium place-items-start pt-2">{{ product.price }} $</p>
+      <div class="flex flex-row space-x-2">
+        <p class="pt-2">Quantity :</p>
+        <p class="pt-2"> {{ product.quantity }}</p>
       </div>
     </div>
   </div>

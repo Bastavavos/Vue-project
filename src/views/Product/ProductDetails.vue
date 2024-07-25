@@ -47,9 +47,7 @@ export default {
       </div>
 
       <select class="select select-bordered w-40 m-5 bg-white">
-        <option disabled selected>Materials</option>
-        <option>material 1</option>
-        <option>material 2</option>
+
       </select>
 
 

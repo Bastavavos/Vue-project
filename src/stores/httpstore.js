@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
+import {computed} from "vue";
 
 axios.defaults.baseURL=import.meta.env.VITE_API_URL;
 
@@ -8,6 +9,8 @@ export const usehttpStore = defineStore({
     state:() => ({
         products : null,
         product : null,
+        promoProducts: null,
+        randomProducts: null,
         user : null,
         token : null,
     }),
@@ -62,6 +65,24 @@ export const usehttpStore = defineStore({
                 console.error('Error fetching products:', error);
             }
         },
+        async getRandomProducts() {
+            try {
+                let response = await axios.get("/products");
+                let allProductsArray = Array.isArray(response.data) ? response.data : [];
+                const randomIndices = Array.from({ length: 3 }, () => Math.floor(Math.random() * allProductsArray.length));
+                this.randomProducts = randomIndices.map(index => allProductsArray[index]);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        },
+        async getPromoProducts() {
+            try {
+                let response = await axios.get("/products");
+                this.promoProducts = response.data.length > 0 ? response.data.sort((a, b) => a.price - b.price).slice(0, 6) : [];
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        },
         async getProduct(id){
             try {
                 let response = await axios.get("/products/"+id)
@@ -79,22 +100,43 @@ export const usehttpStore = defineStore({
                 console.error('Error fetching products by category:', error);
             }
         },
-
-        async getBest() {
+        async getProductsByStyle(styleId) {
             try {
-                const response = await axios.get("/products?limit=4")
+                let response = await axios.get(`/products/style/${styleId}`);
                 this.products = response.data;
             } catch (error) {
-                console.error('Error fetching products:', error);
+                console.error('Error fetching products by style:', error);
             }
         },
-        async getPromo() {
+        async getProductsByMaterial(materialId) {
             try {
-                const response = await axios.get("/products?sort=asc")
+                let response = await axios.get(`/products/material/${materialId}`);
                 this.products = response.data;
             } catch (error) {
-                console.error('Error fetching products:', error);
+                console.error('Error fetching products by material:', error);
             }
         },
+        // async getProductsByCombinedFilters(categoryId, styleId, materialId) {
+        //     try {
+        //         let response = await axios.get('/products');
+        //         let products = response.data;
+        //
+        //         if (categoryId) {
+        //             const filteredResponse = await axios.get(`/products/category/${categoryId}`);
+        //             products = filteredResponse.data;
+        //         }
+        //         if (styleId) {
+        //             const filteredResponse = await axios.get(`/products/style/${styleId}`);
+        //             products = filteredResponse.data;
+        //         }
+        //         if (materialId) {
+        //             const filteredResponse = await axios.get(`/products/material/${materialId}`);
+        //             products = filteredResponse.data;
+        //         }
+        //         this.products = products;
+        //     } catch (error) {
+        //         console.error('Error fetching products by combined filters:', error);
+        //     }
+        // }
     },
 })

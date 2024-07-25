@@ -47,7 +47,7 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --color-background: var(--vt-c-black);
+    --color-background: var(--vt-c-black); /*151515FF*/
     --color-background-soft: var(--vt-c-black-soft);
     --color-background-mute: var(--vt-c-black-mute);
 
@@ -60,7 +60,6 @@
 }
 
 .dark-theme {
-/*  --color-background: var(--vt-c-black);*/
   --color-background: var(--vt-c-black);
   --color-background-soft: var(--vt-c-black-soft);
   --color-background-mute: var(--vt-c-black-mute);
@@ -74,6 +73,16 @@
   --color-heading: var(--vt-c-black);
   --color-text: var(--vt-c-text-dark-2);
 }
+
+.input-bg-light {
+  background-color: var(--color-background-soft);
+}
+.input-bg-dark {
+  background-color: var(--color-background-mute);
+}
+
+
+
 
 *,
 *::before,
