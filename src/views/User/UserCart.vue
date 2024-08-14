@@ -1,17 +1,17 @@
 <script>
-import {ref} from 'vue';
+import {computed, ref} from 'vue';
 import {useItemsStore} from "@/stores/cart.js";
 import ItemCart from "@/views/Product/ItemCart.vue";
+import {usehttpStore} from "@/stores/httpstore.js";
 
 export default {
   components: {ItemCart},
   setup() {
+    const store = usehttpStore()
     const itemStore = useItemsStore();
     const count = ref(0);
-    return {
-      itemStore,
-      count,
-    };
+    const isAuthenticated = computed(() => !!store.user);
+    return {itemStore, count, isAuthenticated};
   },
 };
 </script>
@@ -37,7 +37,10 @@ export default {
             <p class="font-medium text-xl">{{ itemStore.totalPrice }} $</p>
           </div>
           <button @click="itemStore.removeAllItems()" id="back">Clear cart</button>
-          <RouterLink to="/checkout">
+          <RouterLink to="/checkout" v-if="isAuthenticated">
+            <button class="btn text-white mb-2 mt-8">Checkout</button>
+          </RouterLink>
+          <RouterLink to="/sign-in" v-else>
             <button class="btn text-white mb-2 mt-8">Checkout</button>
           </RouterLink>
         </div>

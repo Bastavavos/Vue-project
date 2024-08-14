@@ -83,60 +83,61 @@ export const usehttpStore = defineStore({
                 console.error('Error fetching products:', error);
             }
         },
+
         async getProduct(id){
             try {
                 let response = await axios.get("/products/"+id)
-                this.product = response.data;
-                return this.product
+                console.log(response.data);
+                return response.data;
+                // return this.product
             } catch (error) {
                 console.error('Error fetching product:', error);
             }
         },
-        async getProductsByCategory(categoryId) {
+
+
+        async getProductFilters(categoryId, styleId, materialId){
             try {
-                let response = await axios.get(`/products/category/${categoryId}`);
-                this.products = response.data;
+                let url = `/products/filter`;
+
+                const params = [];
+                if(categoryId) params.push(`categoryId=${categoryId}`);
+                if(styleId) params.push(`styleId=${styleId}`);
+                if(materialId) params.push(`materialId=${materialId}`);
+
+                if(params.length > 0) {
+                    url += '?' + params.join('&');
+                }
+                let response = await axios.get(url);
+
+                console.log(response.data);
             } catch (error) {
-                console.error('Error fetching products by category:', error);
+                console.log(error);
             }
         },
-        async getProductsByStyle(styleId) {
-            try {
-                let response = await axios.get(`/products/style/${styleId}`);
-                this.products = response.data;
-            } catch (error) {
-                console.error('Error fetching products by style:', error);
-            }
-        },
-        async getProductsByMaterial(materialId) {
-            try {
-                let response = await axios.get(`/products/material/${materialId}`);
-                this.products = response.data;
-            } catch (error) {
-                console.error('Error fetching products by material:', error);
-            }
-        },
-        // async getProductsByCombinedFilters(categoryId, styleId, materialId) {
+        // async getProductsByCategory(categoryId) {
         //     try {
-        //         let response = await axios.get('/products');
-        //         let products = response.data;
-        //
-        //         if (categoryId) {
-        //             const filteredResponse = await axios.get(`/products/category/${categoryId}`);
-        //             products = filteredResponse.data;
-        //         }
-        //         if (styleId) {
-        //             const filteredResponse = await axios.get(`/products/style/${styleId}`);
-        //             products = filteredResponse.data;
-        //         }
-        //         if (materialId) {
-        //             const filteredResponse = await axios.get(`/products/material/${materialId}`);
-        //             products = filteredResponse.data;
-        //         }
-        //         this.products = products;
+        //         let response = await axios.get(`/products/category/${categoryId}`);
+        //         this.products = response.data;
         //     } catch (error) {
-        //         console.error('Error fetching products by combined filters:', error);
+        //         console.error('Error fetching products by category:', error);
         //     }
-        // }
+        // },
+        // async getProductsByStyle(styleId) {
+        //     try {
+        //         let response = await axios.get(`/products/style/${styleId}`);
+        //         this.products = response.data;
+        //     } catch (error) {
+        //         console.error('Error fetching products by style:', error);
+        //     }
+        // },
+        // async getProductsByMaterial(materialId) {
+        //     try {
+        //         let response = await axios.get(`/products/material/${materialId}`);
+        //         this.products = response.data;
+        //     } catch (error) {
+        //         console.error('Error fetching products by material:', error);
+        //     }
+        // },
     },
 })
