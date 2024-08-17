@@ -16,7 +16,8 @@ export default {
 </script>
 <template>
 
-  <div class="flex justify-center mt-10 mb-10">
+  <hr class="xl:w-full mt-5">
+  <div class="flex justify-center mt-5 mb-10">
       <h1 class="title text-2xl m-10 font-pop">BEST SELLERS</h1>
   </div>
   <div class="container">

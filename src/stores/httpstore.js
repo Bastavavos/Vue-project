@@ -57,6 +57,15 @@ export const usehttpStore = defineStore({
                 this.token = null;
             }
         },
+        async updateUser(userData){
+            try {
+                let response = await axios.put('/users/'+this.user.id, userData)
+                this.user = response.data;
+                return response.data;
+            } catch (error) {
+                console.log(error)
+            }
+        },
         async getProducts(){
             try {
                 let response = await axios.get("/products")
@@ -89,55 +98,33 @@ export const usehttpStore = defineStore({
                 let response = await axios.get("/products/"+id)
                 console.log(response.data);
                 return response.data;
-                // return this.product
             } catch (error) {
                 console.error('Error fetching product:', error);
             }
         },
 
-
-        async getProductFilters(categoryId, styleId, materialId){
+        async productsByUserId(userId) {
             try {
-                let url = `/products/filter`;
-
-                const params = [];
-                if(categoryId) params.push(`categoryId=${categoryId}`);
-                if(styleId) params.push(`styleId=${styleId}`);
-                if(materialId) params.push(`materialId=${materialId}`);
-
-                if(params.length > 0) {
-                    url += '?' + params.join('&');
-                }
-                let response = await axios.get(url);
-
+                let response = await axios.get(`/products/user/${userId}`);
                 console.log(response.data);
+                return response.data;
             } catch (error) {
-                console.log(error);
+                console.error('Error fetching products:', error);
             }
         },
-        // async getProductsByCategory(categoryId) {
-        //     try {
-        //         let response = await axios.get(`/products/category/${categoryId}`);
-        //         this.products = response.data;
-        //     } catch (error) {
-        //         console.error('Error fetching products by category:', error);
-        //     }
-        // },
-        // async getProductsByStyle(styleId) {
-        //     try {
-        //         let response = await axios.get(`/products/style/${styleId}`);
-        //         this.products = response.data;
-        //     } catch (error) {
-        //         console.error('Error fetching products by style:', error);
-        //     }
-        // },
-        // async getProductsByMaterial(materialId) {
-        //     try {
-        //         let response = await axios.get(`/products/material/${materialId}`);
-        //         this.products = response.data;
-        //     } catch (error) {
-        //         console.error('Error fetching products by material:', error);
-        //     }
-        // },
+
+        async setProducts(fetchedProducts) {
+            this.products = fetchedProducts;
+        },
+
+        async getProductFilters(categoryId, styleId, materialId) {
+            try {
+                let response = await axios.get(`/products/filter/${categoryId}/${styleId}/${materialId}`);
+                console.log(response.data);
+                return response.data;
+            } catch (error) {
+                console.error(error);
+            }
+        },
     },
 })

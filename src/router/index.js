@@ -18,11 +18,6 @@ const router = createRouter({
       component: () => import('../views/Product/Shop.vue')
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/About/AboutPage.vue')
-    },
-    {
       path: '/product/:id',
       name: 'product-details',
       component: () => import('../views/Product/ProductDetails.vue'),
@@ -57,7 +52,7 @@ const router = createRouter({
     {
       path: '/artisan-space',
       name: 'artisan-space',
-      component: () => import('../views/User/ArtisanSpace.vue')
+      component: () => import('../views/User/ArtisanPersonalSpace.vue')
     }
   ]
 })

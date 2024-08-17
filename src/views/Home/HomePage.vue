@@ -1,7 +1,7 @@
 <script setup>
-import BestSellers from "@/views/Home/BestSellers.vue";
-import Promotions from "@/views/Home/Promotions.vue";
-import Welcome from "@/views/Home/Welcome.vue";
+import BestSellers from "@/components/BestSellers.vue";
+import Promotions from "@/components/Promotions.vue";
+import Welcome from "@/components/Welcome.vue";
 </script>
 
 <template>

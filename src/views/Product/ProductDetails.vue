@@ -22,17 +22,20 @@ export default {
 </script>
 
 <template>
-  <div class="pt-20 shadow-lg">
-    <div v-if="details" class="card shadow-lg mb-1 font-pop mx-64 pt-10">
+  <div class="pt-20">
+    <div v-if="details" class="card shadow-lg font-pop mx-64 mt-20 mb-20">
       <figure class="img p-2">
         <img :src="details.product.image" alt="Product" class="h-32 w-28">
       </figure>
-      <div class="card-body items-center text-center p-2">
-        <h2 class="card-title">{{ details.product.name }}</h2>
-        <p>{{ details.product.description }}</p>
-
-        <p class="font-bold text-xl" id="price">{{ details.product.price }} $</p>
-        <div class="card-actions">
+      <div class="card-body items-center text-center p-6">
+          <h2 class="card-title text-2xl">{{ details.product.name }}.</h2>
+          <h2 class="text-xl">by {{ details.product.artisan }}</h2>
+        <hr class="xl:w-full mt-5">
+        <p class="pt-6">Description : {{ details.product.description }}</p>
+        <p>Current stock : {{ details.product.stock }}</p>
+        <hr class="xl:w-full mt-5">
+        <p class="font-bold text-xl pt-6" id="price">{{ details.product.price }} $</p>
+        <div class="card-actions pt-6">
           <button @click="itemStore.addItem(details.product)" class="btn text-white mb-2">
             <i-ph-bag class="h-4 w-4"></i-ph-bag>
             Add to cart

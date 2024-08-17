@@ -50,7 +50,6 @@ export default {
       </div>
       <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow w-52 rounded" :class="{'bg-white': !isDarkTheme, 'bg-black': isDarkTheme}">
         <li><RouterLink to="/">HOME</RouterLink></li>
-        <li><RouterLink to="/about">ABOUT</RouterLink></li>
         <li><RouterLink to="/shop">SHOP</RouterLink></li>
         <li><RouterLink to="/artisan-space">ARTISAN</RouterLink></li>
         <li><RouterLink to="/user-account">MY ACCOUNT</RouterLink></li>
@@ -63,10 +62,10 @@ export default {
   <div class="navbar-center hidden lg:flex">
     <div class="menu menu-horizontal px-1">
       <button class="btn btn-ghost"><RouterLink to="/">HOME</RouterLink></button>
-      <button class="btn btn-ghost"><RouterLink to="/about">ABOUT</RouterLink></button>
       <button class="btn btn-ghost"><RouterLink to="/shop">SHOP</RouterLink></button>
       <button class="btn btn-ghost"><RouterLink to="/artisan-space">ARTISAN</RouterLink></button>
-      <button class="btn btn-ghost"><RouterLink to="/user-account">MY ACCOUNT</RouterLink></button>
+      <button class="btn btn-ghost" v-if="isAuthenticated"><RouterLink to="/user-account">MY ACCOUNT</RouterLink></button>
+      <button class="btn btn-ghost" v-else ><RouterLink to="/sign-in">MY ACCOUNT</RouterLink></button>
     </div>
   </div>
 
