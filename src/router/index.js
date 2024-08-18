@@ -18,11 +18,21 @@ const router = createRouter({
       component: () => import('../views/Product/Shop.vue')
     },
     {
+      path: '/artisan',
+      name: 'artisan',
+      component: () => import('../views/User/Artisan.vue')
+    },
+    {
       path: '/product/:id',
       name: 'product-details',
       component: () => import('../views/Product/ProductDetails.vue'),
       // component: ProductDetails,
       // props: true,
+    },
+    {
+      path: '/artisan/:id',
+      name: 'artisan-details',
+      component: () => import('../views/User/ArtisanDetails.vue'),
     },
     {
       path: '/sign-in',

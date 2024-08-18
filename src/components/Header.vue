@@ -31,7 +31,7 @@ export default {
       console.log(logout);
       await this.router.push('/');
     }
-  },
+  }
 }
 </script>
 
@@ -51,8 +51,10 @@ export default {
       <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow w-52 rounded" :class="{'bg-white': !isDarkTheme, 'bg-black': isDarkTheme}">
         <li><RouterLink to="/">HOME</RouterLink></li>
         <li><RouterLink to="/shop">SHOP</RouterLink></li>
-        <li><RouterLink to="/artisan-space">ARTISAN</RouterLink></li>
+        <li><RouterLink to="/artisan">ARTISAN</RouterLink></li>
+
         <li><RouterLink to="/user-account">MY ACCOUNT</RouterLink></li>
+        <li><RouterLink to="/artisan-space">MY SHOP</RouterLink></li>
       </ul>
     </div>
     <RouterLink to="/">
@@ -63,9 +65,13 @@ export default {
     <div class="menu menu-horizontal px-1">
       <button class="btn btn-ghost"><RouterLink to="/">HOME</RouterLink></button>
       <button class="btn btn-ghost"><RouterLink to="/shop">SHOP</RouterLink></button>
-      <button class="btn btn-ghost"><RouterLink to="/artisan-space">ARTISAN</RouterLink></button>
+      <button class="btn btn-ghost"><RouterLink to="/artisan">ARTISAN</RouterLink></button>
+
       <button class="btn btn-ghost" v-if="isAuthenticated"><RouterLink to="/user-account">MY ACCOUNT</RouterLink></button>
       <button class="btn btn-ghost" v-else ><RouterLink to="/sign-in">MY ACCOUNT</RouterLink></button>
+
+      <button class="btn btn-ghost" v-if="isAuthenticated"><RouterLink to="/artisan-space">MY SHOP</RouterLink></button>
+      <button class="btn btn-ghost" v-else ><RouterLink to="/sign-in">MY SHOP</RouterLink></button>
     </div>
   </div>
 

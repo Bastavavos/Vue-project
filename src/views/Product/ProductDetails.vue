@@ -1,10 +1,15 @@
 <script>
 import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import {useRoute} from 'vue-router';
 import { usehttpStore } from "@/stores/httpstore.js";
 import {useItemsStore} from "@/stores/cart.js";
+import {RouterLink} from "vue-router";
 
 export default {
+  components: {RouterLink},
+  props: {
+    artisan: Object,
+  },
   setup() {
     const details = ref(null);
     const route = useRoute();
@@ -29,7 +34,10 @@ export default {
       </figure>
       <div class="card-body items-center text-center p-6">
           <h2 class="card-title text-2xl">{{ details.product.name }}.</h2>
-          <h2 class="text-xl">by {{ details.product.artisan }}</h2>
+        <h2 class="text-xl">
+          by {{ details.product.artisan }}
+        </h2>
+
         <hr class="xl:w-full mt-5">
         <p class="pt-6">Description : {{ details.product.description }}</p>
         <p>Current stock : {{ details.product.stock }}</p>

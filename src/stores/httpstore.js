@@ -13,6 +13,8 @@ export const usehttpStore = defineStore({
         randomProducts: null,
         user : null,
         token : null,
+        artisans: null,
+        artisan: null,
     }),
     getters:{
         currentUser(){
@@ -74,6 +76,33 @@ export const usehttpStore = defineStore({
                 console.error('Error fetching products:', error);
             }
         },
+        async getArtisans(){
+            try {
+                let response = await axios.get("/artisans")
+                this.artisans = response.data;
+            } catch (error) {
+                console.error('Error fetching artisans:', error);
+            }
+        },
+        async getProduct(id){
+            try {
+                let response = await axios.get("/products/"+id)
+                console.log(response.data);
+                return response.data;
+            } catch (error) {
+                console.error('Error fetching product:', error);
+                return {};
+            }
+        },
+        async getArtisan(id){
+            try {
+                let response = await axios.get("/artisans/"+id)
+                console.log(response.data);
+                return response.data;
+            } catch (error) {
+                console.error('Error fetching artisan:', error);
+            }
+        },
         async getRandomProducts() {
             try {
                 let response = await axios.get("/products");
@@ -90,16 +119,6 @@ export const usehttpStore = defineStore({
                 this.promoProducts = response.data.length > 0 ? response.data.sort((a, b) => a.price - b.price).slice(0, 6) : [];
             } catch (error) {
                 console.error('Error fetching products:', error);
-            }
-        },
-
-        async getProduct(id){
-            try {
-                let response = await axios.get("/products/"+id)
-                console.log(response.data);
-                return response.data;
-            } catch (error) {
-                console.error('Error fetching product:', error);
             }
         },
 

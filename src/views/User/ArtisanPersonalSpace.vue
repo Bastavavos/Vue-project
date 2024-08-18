@@ -32,7 +32,7 @@ export default defineComponent({
           <i-ph-user-circle class="h-48 w-48"></i-ph-user-circle>
           <div class="flex flex-row">
             <div class="flex flex-col">
-              <strong class="text-2xl">Artisan Name</strong>
+              <strong class="text-2xl">{{user.firstname}} {{user.lastname}}</strong>
               <span class="text-xl">Technical advisor</span>
             </div>
             <div class="pl-44 pt-4">
@@ -72,17 +72,18 @@ export default defineComponent({
             </p>
           </div>
         </div>
-    <div class="flex flex-row card shadow-lg justify-center pb-3 px-16">
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    <div class="flex flex-row card shadow-lg justify-center pb-3 px-16 mt-10">
       <div class="basis-1/4">
         <h1 class="title text-xl mt-10 font-pop">My Products</h1>
-        <div class="font-pop pt-52">
+        <div class="font-pop pt-20">
           Do you want a customized product ?
         </div>
         <div class="font-pop pt-16">
-          Contact me at this address :
+          Contact me :
         </div>
-        <div class="font-pop pt-5">
-          example@mail.com
+        <div class="font-pop">
+          {{user.email}}
         </div>
       </div>
       <div class="basis-3/4 about flex justify-center m-8 text-center font-robo">
