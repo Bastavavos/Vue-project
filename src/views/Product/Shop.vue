@@ -54,32 +54,34 @@ export default {
     <div class="flex justify-center font-pop">
       <select v-model="categoryId" class="select select-bordered w-40 m-5" :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}">
         <option value="">All Categories</option>
-        <option value="9e55781b-30d4-4eb8-b748-b522db65a88a">Tools</option>
-        <option value="98f4ff97-2138-496f-9b64-2612fa2262bf">Jewelry</option>
-        <option value="f3f88820-b50d-4864-bf7f-c3be72ec23a3">Decoration</option>
-        <option value="66040d2d-ea5a-4b88-8517-26363aca3211">Cosmetic</option>
+        <option value="a62e1040-c24e-4cd8-a10b-a0e4432d3bc0">Tools</option>
+        <option value="1a3ebeab-be75-43b7-b1a1-a2da12d976fa">Jewelry</option>
+        <option value="53827f7f-2e05-4a76-9076-a3d3726ab992">Decoration</option>
+        <option value="d8e2e076-41ae-480a-be1a-97f7d9b0b942">Cosmetic</option>
       </select>
       <select v-model="styleId" class="select select-bordered w-40 m-5" :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}">
         <option value="">All Styles</option>
-        <option value="aec7ed34-e4cf-4fd5-a197-b1d95e26937e">New</option>
-        <option value="67914d5b-05c0-4708-8f52-d66fe5a9d5e8">Old</option>
-        <option value="26227d90-8a2f-4549-b413-23a79950a706">Refined</option>
-        <option value="c88407ff-1f82-48af-a0a4-8c3b8dcdd9eb">Artistic</option>
+        <option value="ef462b0a-7672-4128-a0c7-494658eb26bb">New</option>
+        <option value="e6812661-fc97-4712-97bc-f76dca956299">Old</option>
+        <option value="c56d25f9-03d1-4b8c-9a11-59328b730dc4">Refined</option>
+        <option value="da2957f9-865b-492e-bc04-cb03224892c4">Artistic</option>
       </select>
       <select v-model="materialId" class="select select-bordered w-40 m-5" :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}">
         <option value="">All Materials</option>
-        <option value="2d62cbb9-8930-4fc1-8b47-48492b1ce91e">Wood</option>
-        <option value="11c16ed5-430c-4bf9-bcc6-a4b3ee489a44">Gold</option>
-        <option value="afe07762-864c-4fec-be47-d16c8be38536">Allergen Free</option>
-        <option value="5cb8bb67-bfaf-4f3c-95f8-8180f2c4a335">Silver</option>
-        <option value="7c894fe2-8d5c-49ab-87ec-a6cdbbec4615">Natural</option>
+        <option value="a8ed8340-a185-4200-8be4-91ecae2fc41e">Wood</option>
+        <option value="2b246884-997f-41e5-8410-caf6c38aa001">Gold</option>
+        <option value="45b99104-74dc-4043-985d-fcb235508f1a">Allergen Free</option>
+        <option value="5e1d9a0f-e347-4e02-b94c-85c57879d1d4">Silver</option>
+        <option value="d73d33b2-e030-4e10-b44e-a87b4c6bd460">Natural</option>
       </select>
 
       <select v-model="userId" class="select select-bordered w-40 m-5" :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}">
         <option value="">All Artisans</option>
-        <option value="9cc84d22-8acc-4971-ba5e-46ed1d8a39b0">René Roche</option>
-        <option value="9cc84d22-8ce1-4a06-acf1-52885d63a2bc">Sylvie Michaud</option>
-        <option value="9cc84d22-8e4f-4f08-b62a-37f3c437882c">Dorothée Jacquet</option>
+        <option value="9ccd40fb-cf43-4b8a-bf70-4e5c48f9fc78">Constance Lemaitre</option>
+        <option value="9ccd40fb-d13d-4844-85d7-96ee3157c22d">Agathe Guerin
+        </option>
+        <option value="9ccd40fb-d484-4d59-95b9-335be188f205">Élodie Rocher
+        </option>
       </select>
     </div>
 

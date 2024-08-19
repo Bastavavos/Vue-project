@@ -6,7 +6,13 @@ import Footer from "@/components/Footer.vue";
 
 <template>
   <Header/>
+  <transition
+      enter-from-class="opacity-0"
+      enter-active-class="transition-opacity duration-500"
+      leave-from-class="opacity-100"
+      leave-active-class="transition-opacity duration-500">
   <RouterView/>
+  </transition>
   <Footer/>
 </template>
 

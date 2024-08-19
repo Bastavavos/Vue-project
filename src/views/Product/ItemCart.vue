@@ -18,7 +18,7 @@ export default {
   <div class="card shadow-lg mb-1 font-pop ml-2 mr-3">
     <RouterLink :to="`/product/${product.id}`">
       <figure class="img p-4">
-        <img :src="product.image" alt="Product" class="h-32 w-28">
+        <img :src="product.image" alt="Product" class="object-cover">
       </figure>
     </RouterLink>
     <div class="card-body items-center text-center p-2">

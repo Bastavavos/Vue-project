@@ -30,7 +30,7 @@ export default {
   <div class="pt-20">
     <div v-if="details" class="card shadow-lg font-pop mx-64 mt-20 mb-20">
       <figure class="img p-2">
-        <img :src="details.product.image" alt="Product" class="h-32 w-28">
+        <img :src="details.product.image" alt="Product" class="object-cover">
       </figure>
       <div class="card-body items-center text-center p-6">
           <h2 class="card-title text-2xl">{{ details.product.name }}.</h2>
