@@ -28,8 +28,11 @@ export default {
 
 <template>
   <div class="pt-20">
-    <div v-if="info" class="font-pop p-10">
-      <div class="card-body items-center text-center p-2">
+    <div v-if="info" class="font-pop pt-10">
+      <div class="card-body items-center text-center">
+        <figure class="h-56 w-56">
+          <img :src="info.user.image" alt="Artisan" class="object-cover">
+        </figure>
         <h2 class="card-title">{{ info.user.firstname }} {{ info.user.lastname }}</h2>
         <p>Contact : {{ info.user.email }}</p>
       </div>

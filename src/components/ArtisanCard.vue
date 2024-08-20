@@ -13,6 +13,9 @@ export default {
     <div class="card shadow-lg mb-1 font-pop">
       <div class="card-body items-center text-center p-2">
         <h2 class="card-title">{{ artisan.firstname }} {{ artisan.lastname }}</h2>
+        <figure class="h-56 w-56">
+          <img :src="artisan.image" alt="Artisan" class="object-cover">
+        </figure>
         <p>Contact : {{ artisan.email }}</p>
 
         <RouterLink :to="`/artisan/${artisan.id}`">

@@ -53,13 +53,19 @@ export default {
         <li><RouterLink to="/shop">SHOP</RouterLink></li>
         <li><RouterLink to="/artisan">ARTISAN</RouterLink></li>
 
-        <li><RouterLink to="/user-account">MY ACCOUNT</RouterLink></li>
-        <li><RouterLink to="/artisan-space">MY SHOP</RouterLink></li>
+        <li v-if="isAuthenticated"><RouterLink to="/user-account">MY ACCOUNT</RouterLink></li>
+        <li v-else><RouterLink to="/sign-in">MY ACCOUNT</RouterLink></li>
+        <li v-if="isAuthenticated"><RouterLink to="/artisan-space">MY SHOP</RouterLink></li>
+        <li v-else><RouterLink to="/sign-in">MY SHOP</RouterLink></li>
       </ul>
     </div>
-    <RouterLink to="/">
-      <h1 class="text-xl font-ryman">CraftedBy.</h1>
-    </RouterLink>
+
+    <div class="flex flex-row space-x-1">
+      <RouterLink to="/">
+        <h1 class="text-xl font-ryman">CraftedBy.</h1>
+      </RouterLink>
+      <i-ph-Leaf color="#61b181" class="mt-1"/>
+    </div>
   </div>
   <div class="navbar-center hidden lg:flex">
     <div class="menu menu-horizontal px-1">

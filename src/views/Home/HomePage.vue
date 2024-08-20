@@ -5,7 +5,9 @@ import Welcome from "@/components/Welcome.vue";
 </script>
 
 <template>
-  <Welcome/>
-  <BestSellers/>
-  <Promotions/>
+  <div>
+    <Welcome/>
+    <BestSellers/>
+    <Promotions/>
+  </div>
 </template>

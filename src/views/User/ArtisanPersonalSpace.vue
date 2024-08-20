@@ -28,16 +28,17 @@ export default defineComponent({
 
 <template>
   <div class="pt-20 px-36 pb-20">
-        <div class="flex items-center font-pop">
-          <i-ph-user-circle class="h-48 w-48"></i-ph-user-circle>
-          <div class="flex flex-row">
-            <div class="flex flex-col">
-              <strong class="text-2xl">{{user.firstname}} {{user.lastname}}</strong>
+        <div class="flex font-pop pl-36">
+          <div class="flex flex-row items-center space-x-32">
+            <figure class="h-56 w-56 pt-10">
+              <img :src="user.image" alt="Artisan" class="object-cover">
+            </figure>
+            <div class="flex flex-col items-center space-y-2">
+              <strong class="text-2xl">{{ user.firstname }} {{ user.lastname }}</strong>
               <span class="text-xl">Technical advisor</span>
+              <span class="italic">"Inter quos Paulus eminebat notarius ortus in Hispania"</span>
             </div>
-            <div class="pl-44 pt-4">
-              <span class="text-xl italic">"Inter quos Paulus eminebat notarius ortus in Hispania"</span>
-            </div>
+
           </div>
         </div>
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
