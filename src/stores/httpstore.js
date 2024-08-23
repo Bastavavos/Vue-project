@@ -145,5 +145,15 @@ export const usehttpStore = defineStore({
                 console.error(error);
             }
         },
+
+        async createProduct(productData) {
+            try {
+                return await axios.post('/products', productData);
+                // this.product = null;
+                // return response.data;
+            } catch (error) {
+                console.error(error);
+            }
+        }
     },
 })

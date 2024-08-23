@@ -47,8 +47,8 @@ export default {
       } catch (error) {
         console.error("Erreur lors de l'inscription :", error.response ? error.response.data : error.message);
       }
-
     },
+
     async fetchLocations() {
       try {
         const zipResponse = await axios.get('/zip-codes');
@@ -165,9 +165,7 @@ export default {
               <option v-for="option in roleOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
             </select>
           </div>
-
         </div>
-
       </div>
 
 

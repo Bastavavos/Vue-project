@@ -63,6 +63,11 @@ const router = createRouter({
       path: '/artisan-space',
       name: 'artisan-space',
       component: () => import('../views/User/ArtisanPersonalSpace.vue')
+    },
+    {
+      path: '/artisan/product/create',
+      name: 'create-product',
+      component: () => import('../views/Product/CreateProduct.vue')
     }
   ]
 })

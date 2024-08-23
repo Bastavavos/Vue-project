@@ -39,6 +39,12 @@ export default defineComponent({
               <span class="italic">"Inter quos Paulus eminebat notarius ortus in Hispania"</span>
             </div>
 
+            <div>
+              <RouterLink to="/artisan/product/create">
+                <button class="btn text-white mb-2"> + Add new product</button>
+              </RouterLink>
+            </div>
+
           </div>
         </div>
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
@@ -102,6 +108,11 @@ export default defineComponent({
   gap: 100px;
   grid-template-columns: repeat(3,minmax(0,1fr));
   grid-auto-rows: auto;
+}
+.btn {
+  border: unset;
+  border-radius: 5px;
+  background-color: #56b280;
 }
 </style>
 

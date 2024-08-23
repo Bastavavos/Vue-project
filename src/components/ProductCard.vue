@@ -27,7 +27,7 @@ export default {
       <h2 class="card-title">{{ product.name }}</h2>
       <p>{{ product.description.split('.')[0] }}</p>
       <p class="font-bold text-xl">{{ product.price }} $</p>
-      <div class="card-actions">
+      <div class="card-actions object-contain">
         <button @click="itemStore.addItem(product)" class="btn text-white mb-2">
           <i-ph-bag class="h-4 w-4"></i-ph-bag>
           Add to cart
