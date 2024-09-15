@@ -57,6 +57,16 @@ export default {
         <li v-else><RouterLink to="/sign-in">MY ACCOUNT</RouterLink></li>
         <li v-if="isAuthenticated"><RouterLink to="/artisan-space">MY SHOP</RouterLink></li>
         <li v-else><RouterLink to="/sign-in">MY SHOP</RouterLink></li>
+        <li class="text-center">------</li>
+        <li v-if="!isAuthenticated"><RouterLink to="/sign-in">SIGN IN</RouterLink></li>
+        <li v-else @click="logoutAction" class="btn btn-ghost flex flex-row">LOG OUT</li>
+        <li><RouterLink to="/sign-up">SIGN UP</RouterLink></li>
+        <li>
+          <RouterLink to="/user-cart" class="flex items-center">
+            CART
+            <span class="font-semibold">{{ itemsStore.cartItemCount }}</span>
+          </RouterLink>
+        </li>
       </ul>
     </div>
 
@@ -103,6 +113,9 @@ export default {
         <i-ph-bag class="h-5 w-5"></i-ph-bag>
       </button>
     </RouterLink>
+
+
+
   </div>
 
 

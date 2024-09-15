@@ -27,11 +27,11 @@ export default {
     </div>
   </div>
 
-  <div class="pt-6">
+  <div class="pt-6 sm:px-2 md:px-6 lg:px-20">
     <div class="flex justify-center text-center mt-8 text-2xl font-pop pb-5">
       <h1>Our project</h1>
     </div>
-    <div class="about flex justify-center m-8 px-20 text-center font-robo">
+    <div class="about flex justify-center m-8 text-center font-robo">
       <p>
         Inter quos Paulus eminebat notarius ortus in Hispania, glabro quidam sub vultu latens,
         odorandi vias periculorum occultas perquam sagax.
@@ -41,7 +41,7 @@ export default {
         vinculis membra ingenuorum adfligens et quosdam.
       </p>
     </div>
-    <div class="flex row px-20">
+    <div class="flex row">
       <div class="about flex justify-center m-8 text-center font-robo">
         <p>
           Inter quos Paulus eminebat notarius ortus in Hispania, glabro quidam sub vultu latens,

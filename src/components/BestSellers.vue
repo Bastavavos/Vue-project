@@ -21,22 +21,14 @@ export default {
       <h1 class="title text-2xl m-10 font-pop">BEST SELLERS</h1>
   </div>
   <div class="container">
-    <div class="flex justify-center mb-12">
-      <div class="wrapper">
+      <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 justify-center">
         <ProductCard v-for="product in best.randomProducts" :key="product.id" :product="product"/>
       </div>
-    </div>
   </div>
 
 </template>
 
 <style scoped>
-.wrapper {
-  display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(3,minmax(0,1fr));
-  grid-auto-rows: auto;
-}
 
 .container {
   margin: 0 auto;

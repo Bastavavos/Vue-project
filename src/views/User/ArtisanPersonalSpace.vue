@@ -40,7 +40,7 @@ export default defineComponent({
             </div>
 
             <div>
-              <RouterLink to="/artisan/product/create">
+              <RouterLink to="/create-product">
                 <button class="btn text-white mb-2"> + Add new product</button>
               </RouterLink>
             </div>

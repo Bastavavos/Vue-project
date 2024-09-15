@@ -1,8 +1,13 @@
-import { defineStore } from 'pinia';
+import {defineStore} from 'pinia';
 import axios from 'axios';
-import {computed} from "vue";
 
 axios.defaults.baseURL=import.meta.env.VITE_API_URL;
+
+// const api = axios.create({
+//     baseURL: `${import.meta.env.VITE_API_URL}/api`,
+// });
+
+
 
 export const usehttpStore = defineStore({
     id:'http',
@@ -19,9 +24,10 @@ export const usehttpStore = defineStore({
     getters:{
         currentUser(){
           return this.user
-        },
+        }
     },
     actions:{
+
         async register(userData){
             try {
                 return await axios.post('auth/register', userData)
@@ -29,22 +35,38 @@ export const usehttpStore = defineStore({
                 console.log(error)
             }
         },
-        async login(loginData, token){
-            try{
-                let response = await axios.post('auth/login', loginData)
-                this.user = response.data.user
-                this.token = response.data.token
 
-                // setting the token for future request
-                axios.defaults.headers.common = {
-                    'Authorization': `Bearer ${token}`
-                }
-                // this.authenticated = true
-                return this.user
+        // async login(loginData, token){
+        //     try{
+        //         let response = await axios.post('auth/login', loginData)
+        //         this.user = response.data.user
+        //         this.token = response.data.token
+        //
+        //         // setting the token for future request
+        //         axios.defaults.headers.common = {
+        //             'Authorization': `Bearer ${token}`
+        //         }
+        //         // this.authenticated = true
+        //         return this.user
+        //     } catch (error) {
+        //         console.log(error)
+        //     }
+        // },
+
+        async login(loginData) {
+            try {
+                let response = await axios.post('auth/login', loginData);
+                this.user = response.data.user;
+                this.token = response.data.token;
+
+                axios.defaults.headers.common['Authorization'] = `Bearer ${this.token}`;
+
+                return this.user;
             } catch (error) {
-                console.log(error)
+                throw error;
             }
         },
+
         async logout(token) {
             try {
                 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -146,14 +168,16 @@ export const usehttpStore = defineStore({
             }
         },
 
-        async createProduct(productData) {
+        async createProduct(productData, token = this.token) {
             try {
-                return await axios.post('/products', productData);
-                // this.product = null;
-                // return response.data;
+                return await axios.post('/products', productData, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
             } catch (error) {
-                console.error(error);
+                console.log(error)
             }
-        }
+        },
     },
 })

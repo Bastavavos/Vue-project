@@ -85,99 +85,91 @@ export default {
         <h1>CREATE ACCOUNT</h1>
       </div>
 
-      <div class="flex flex-row p-6 space-x-14 justify-center">
-        <div class="flex flex-col">
-          <div class="flex flex-col justify-center">
-            <p class="text-center text-md pb-8 pt-2">Contact & login :</p>
-            <input
-                v-model="firstname"
-                type="text"
-                class="border rounded p-2 mb-4 bg-white"
-                name="firstname"
-                placeholder="firstname"
-                :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
-            />
-          </div>
-          <div class="flex justify-center">
-            <input
-                v-model="lastname"
-                type="text"
-                class="border rounded p-2 mb-4 bg-white"
-                name="lastname"
-                placeholder="lastname"
-                :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
-            />
-          </div>
-          <div class="flex justify-center">
-            <input
-                v-model="email"
-                type="text"
-                class="border rounded p-2 mb-4 bg-white"
-                name="email"
-                placeholder="email"
-                :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
-            />
-          </div>
-          <div class="flex justify-center">
-            <input
-                v-model="password"
-                type="password"
-                class="border rounded p-2 mb-4 bg-white"
-                name="password"
-                placeholder="password"
-                :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
-            />
-          </div>
+      <div class="grid sm:grid-cols-1 md:grid-cols-2">
+
+        <div class="flex flex-col justify-center space-x-14 pr-14">
+          <p class="text-center text-md pb-8 pt-2 pl-14">Contact & login :</p>
+          <input
+              v-model="firstname"
+              type="text"
+              class="border rounded p-2 mb-4 bg-white"
+              name="firstname"
+              placeholder="firstname"
+              :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
+          />
+          <input
+              v-model="lastname"
+              type="text"
+              class="border rounded p-2 mb-4 bg-white"
+              name="lastname"
+              placeholder="lastname"
+              :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
+          />
+          <input
+              v-model="email"
+              type="text"
+              class="border rounded p-2 mb-4 bg-white"
+              name="email"
+              placeholder="email"
+              :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
+          />
+          <input
+              v-model="password"
+              type="password"
+              class="border rounded p-2 mb-4 bg-white"
+              name="password"
+              placeholder="password"
+              :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
+          />
         </div>
 
-        <div class="flex flex-col">
-
-            <p class="text-center text-md pb-6 pt-2">Location & role :</p>
-            <div class="p-2 flex flex-col">
-              <input
-                  v-model="address"
-                  type="text"
-                  class="border rounded p-2 bg-white"
-                  name="address"
-                  placeholder="n° / street name"
-                  :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
-              />
-            </div>
-
-          <div class="p-2 flex flex-col">
-            <select v-model="selectedZipCode" class="border rounded p-2 bg-white"
+        <div class="flex flex-col justify-center space-x-14 pr-14">
+          <p class="text-center text-md pb-8 pt-2 pl-14">Location & role :</p>
+            <input
+                v-model="address"
+                type="text"
+                class="border rounded p-2 mb-4 bg-white"
+                name="address"
+                placeholder="n° / street name"
+                :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}"
+            />
+            <select v-model="selectedZipCode" class="border rounded p-2 mb-4 bg-white"
                     :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}">
               <option value="" disabled>Postal Code</option>
               <option v-for="option in zipOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
             </select>
-          </div>
-          <div class="p-2 flex flex-col">
-            <select v-model="selectedCity" class="border rounded p-2 bg-white"
+            <select v-model="selectedCity" class="border rounded p-2 mb-4 bg-white"
                     :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}">
               <option value="" disabled>City</option>
-              <option v-for="option in cityOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
+              <option v-for="option in cityOptions" :key="option.value" :value="option.value">{{
+                  option.label
+                }}
+              </option>
             </select>
-          </div>
-          <div class="p-2 flex flex-col">
             <select v-model="selectedRole" class="border rounded p-2 mb-4 bg-white"
                     :class="{'input-bg-light': !isDarkTheme, 'input-bg-dark': isDarkTheme}">
               <option value="" disabled>Role</option>
-              <option v-for="option in roleOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
+              <option v-for="option in roleOptions" :key="option.value" :value="option.value">{{
+                  option.label
+                }}
+              </option>
             </select>
-          </div>
         </div>
-      </div>
 
 
-      <div class="flex justify-center mt-5 font-pop">
-        <RouterLink to="/sign-in">
-          <button @click="registerAction" @keydown.enter.prevent="registerAction" type="button" class="btn text-white">Confirm</button>
-        </RouterLink>
       </div>
+    </div>
+
+    <div class="flex justify-center mt-5 font-pop mb-14">
+      <RouterLink to="/sign-in">
+        <button @click="registerAction" @keydown.enter.prevent="registerAction" type="button" class="btn text-white">
+          Confirm
+        </button>
+      </RouterLink>
     </div>
   </div>
 
-<!--  mettre a droite la selection du role avec explication détaillée pour artisan -->
+  <!--  mettre a droite la selection du role avec explication détaillée pour artisan -->
 
 </template>
 
